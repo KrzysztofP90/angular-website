@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NewOneComponent } from './new-one/new-one.component';
 import { IntroDescribe1Component } from './intro-describe1/intro-describe1.component';
 import { IntroComponent } from './intro/intro.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { IntroComponent } from './intro/intro.component';
     AppComponent,
     NewOneComponent,
     IntroDescribe1Component,
-    IntroComponent
+    IntroComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule
