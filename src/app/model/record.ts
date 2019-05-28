@@ -4,8 +4,9 @@ export class RecordFromDB {
     private description: string;
     private path: string;
     private buttonLabel: string;
+    private mainContent: string;
 
-    constructor(title: string, description: string, path: string, buttonLabel: string) {
+    constructor(title: string, description: string, path: string, buttonLabel: string, mainContent: string) {
         this.title = title;
         this.description = description;
         this.path = path;
@@ -27,6 +28,10 @@ export class RecordFromDB {
 
     getButtonLabel() {
         return this.buttonLabel;
+    }
+
+    getMainContent() {
+        return this.mainContent;
     }
 
     setTitle(title: string) {
