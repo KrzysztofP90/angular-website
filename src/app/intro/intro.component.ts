@@ -9,6 +9,8 @@ import { RecordFromDB } from '../model/record';
 })
 export class IntroComponent implements OnInit {
 
+ 
+
   @Input() records: Array<RecordFromDB>;
   constructor() { }
 

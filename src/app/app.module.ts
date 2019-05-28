@@ -7,6 +7,8 @@ import { IntroDescribe1Component } from './intro-describe1/intro-describe1.compo
 import { IntroComponent } from './intro/intro.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { ContactComponent } from './contact/contact.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -16,10 +18,12 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     IntroDescribe1Component,
     IntroComponent,
     GalleryComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    ContactComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

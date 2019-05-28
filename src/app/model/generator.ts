@@ -31,7 +31,7 @@ export class FakeRecordsGenerator {
         const rec5 = new RecordFromDB('Our realizations', 'Nunc sodales in ante quis auctor. Phasellus iaculis condimentum elit, nec eleifend odio facilisis at. Praesent a congue tellus. Mauris aliquam accumsan magna, a pharetra neque lacinia vitae. Vestibulum condimentum ligula urna, vitae faucibus ipsum convallis volutpat. Nam eleifend, ante nec molestie aliquam, lorem felis bibendum mauris, vitae efficitur nunc mauris eu diam. In nibh massa, vehicula sit amet enim nec, vehicula fringilla ipsum. Nullam fringilla faucibus felis eu fringilla. Integer eget pharetra nibh.',
         'path5', 'Show Gallery', 'Nunc sodales in ante quis auctor. Phasellus iaculis condimentum elit, nec eleifend odio facilisis at. Praesent a congue tellus. Mauris aliquam accumsan magna, a pharetra neque lacinia vitae. Vestibulum condimentum ligula urna, vitae faucibus ipsum convallis volutpat. Nam eleifend, ante nec molestie aliquam, lorem felis bibendum mauris, vitae efficitur nunc mauris eu diam. In nibh massa, vehicula sit amet enim nec, vehicula fringilla ipsum. Nullam fringilla faucibus felis eu fringilla. Integer eget pharetra nibh.');
         const rec6 = new RecordFromDB('Contact', "Let's contact with us!",
-        'path6', "Quick contact!", 'Please contact by phone: \n 888-999-000 \n or send email: \n example@gmailcom'
+        '/contact', "Quick contact!", 'Please contact by phone: \n 888-999-000 \n or send email: \n example@gmailcom'
         +'\n You can also send quick email ny form: \n');
         const records: Array<RecordFromDB> = [rec1, rec2, rec3, rec4, rec5, rec6];
         return records;
