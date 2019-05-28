@@ -6,6 +6,7 @@ import { NewOneComponent } from './new-one/new-one.component';
 import { IntroDescribe1Component } from './intro-describe1/intro-describe1.component';
 import { IntroComponent } from './intro/intro.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     NewOneComponent,
     IntroDescribe1Component,
     IntroComponent,
-    GalleryComponent
+    GalleryComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule
