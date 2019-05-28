@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RecordFromDB } from '../model/record';
 
 @Component({
   selector: 'app-intro-describe1',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroDescribe1Component implements OnInit {
 
+  @Input() record: RecordFromDB;
   constructor() { }
 
   ngOnInit() {

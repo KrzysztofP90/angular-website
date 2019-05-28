@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RecordFromDB } from '../model/record';
 import { MainMenuComponent } from './main-menu.component';
 
 describe('MainMenuComponent', () => {

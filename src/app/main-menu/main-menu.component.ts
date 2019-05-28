@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import $ from '../../../node_modules/jquery';
+import { RecordFromDB } from '../model/record';
 
 @Component({
   selector: 'app-main-menu',
@@ -8,6 +9,7 @@ import $ from '../../../node_modules/jquery';
 })
 export class MainMenuComponent implements OnInit {
 
+  @Input() records: Array<RecordFromDB>;
   constructor() { }
 
   ngOnInit() {

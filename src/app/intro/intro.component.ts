@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RecordFromDB } from '../model/record';
+
 
 @Component({
   selector: 'app-intro',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroComponent implements OnInit {
 
+  @Input() records: Array<RecordFromDB>;
   constructor() { }
 
   ngOnInit() {
   }
-
 }
