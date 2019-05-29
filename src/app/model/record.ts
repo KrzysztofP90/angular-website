@@ -8,7 +8,7 @@ export class RecordFromDB {
     private id: number;
 
     constructor(title: string, description: string, path: string, buttonLabel: string,
-         mainContent: string, id: number=99) {
+         mainContent: string, id: number = 99) {
         this.title = title;
         this.description = description;
         this.path = path;
