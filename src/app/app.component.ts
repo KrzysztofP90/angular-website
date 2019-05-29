@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { RecordFromDB } from '../app/model/record';
 import { FakeRecordsGenerator } from '../app/model/generator';
+import { LoadingDataService } from '../app/service/loading-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LoadingDataService]
 })
 export class AppComponent {
 
   private records: Array<RecordFromDB>;
-  private generator: FakeRecordsGenerator;
-
-
-  constructor() {
+  
+  constructor(private dataService: LoadingDataService) {
     /// generate fake example records not from DB
-    this.generator = new FakeRecordsGenerator();
-    this.records = this.generator.createExampleRecordsArray();
+    this.records = this.dataService.getFakeRecordsArray();
   }
 
   getRecords() {

@@ -5,10 +5,11 @@ import { ContactComponent } from '../app/contact/contact.component';
 import { FakeRecordsGenerator } from './model/generator';
 import { IntroComponent } from '../app/intro/intro.component';
 
-const generator = new FakeRecordsGenerator();
-const dataArray = generator.createExampleRecordsArray();
+// const generator = new FakeRecordsGenerator();
+// const dataArray = generator.createExampleRecordsArray();
+// const dataArrayString = JSON.stringify(dataArray);
 const routes: Routes = [
-  { path: '', component: IntroComponent, data: {records: dataArray} },
+  { path: '', component: IntroComponent},
   { path: 'contact', component: ContactComponent },
 ];
 

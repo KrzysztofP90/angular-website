@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecordFromDB } from '../model/record';
+import { FakeRecordsGenerator } from '../model/generator';
+
 
 
 @Component({
@@ -9,10 +11,14 @@ import { RecordFromDB } from '../model/record';
 })
 export class IntroComponent implements OnInit {
 
- 
+  private generator: FakeRecordsGenerator;
+  private records: Array<RecordFromDB>;
+  // @Input() records: Array<RecordFromDB>;
 
-  @Input() records: Array<RecordFromDB>;
-  constructor() { }
+  constructor() { 
+    this.generator = new FakeRecordsGenerator();
+    this.records = this.generator.createExampleRecordsArray();
+  }
 
   ngOnInit() {
   }
