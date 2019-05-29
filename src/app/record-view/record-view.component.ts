@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RecordFromDB } from '../model/record';
 import { LoadingDataService} from '../service/loading-data.service';
+
 
 @Component({
   selector: 'app-record-view',
@@ -10,13 +11,20 @@ import { LoadingDataService} from '../service/loading-data.service';
 })
 export class RecordViewComponent implements OnInit {
 
-  private path: string;
-  private recordData: RecordFromDB;
+  private records: Array<RecordFromDB>;
+  private currentId: number;
 
-  constructor(private router: Router, private dataService: LoadingDataService ) {}
+  constructor(private router: Router, private dataService: LoadingDataService, 
+    private activatedRoute: ActivatedRoute ) {}
 
   ngOnInit() {
-    this.path = this.router.url;
-    this.recordData = this.dataService.getFakeRecordByPath(this.path);
+    this.records = this.dataService.getFakeRecordsArray();
+    this.activatedRoute.params.subscribe(routeParams => {
+      this.setCurrentId(routeParams.id);
+    });
+  }
+
+  setCurrentId(id: number) {
+    this.currentId = id;
   }
 }

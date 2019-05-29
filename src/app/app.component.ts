@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RecordFromDB } from '../app/model/record';
-import { FakeRecordsGenerator } from '../app/model/generator';
 import { LoadingDataService } from '../app/service/loading-data.service';
 
 @Component({
@@ -12,7 +11,6 @@ import { LoadingDataService } from '../app/service/loading-data.service';
 export class AppComponent {
 
   private records: Array<RecordFromDB>;
-  
   constructor(private dataService: LoadingDataService) {
     /// generate fake example records not from DB
     this.records = this.dataService.getFakeRecordsArray();

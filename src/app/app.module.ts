@@ -9,6 +9,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RecordViewComponent } from './record-view/record-view.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
     IntroComponent,
     GalleryComponent,
     MainMenuComponent,
-    ContactComponent
+    ContactComponent,
+    RecordViewComponent
   ],
   imports: [
     BrowserModule,
