@@ -19,6 +19,10 @@ export class AppComponent {
   getRecords() {
     return this.records;
   }
+
+  onActivate(event) {
+    window.scroll(0,0);
+  }
 }
 
 
