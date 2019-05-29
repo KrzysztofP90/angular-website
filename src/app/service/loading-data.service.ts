@@ -18,5 +18,14 @@ export class LoadingDataService {
   getFakeRecordsArray(): Array<RecordFromDB> {
     return this.fakeRecordsArray;
   }
+
+  getFakeRecordByPath(path: string): RecordFromDB {
+    for (const rec of this.fakeRecordsArray) {
+        const recordPath = rec.getPath();
+        if (recordPath === path) {
+            return rec;
+        }
+    }
+  }
 }
 
