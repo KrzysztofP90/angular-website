@@ -5,13 +5,21 @@ export class RecordFromDB {
     private path: string;
     private buttonLabel: string;
     private mainContent: string;
+    private id: number;
 
-    constructor(title: string, description: string, path: string, buttonLabel: string, mainContent: string) {
+    constructor(title: string, description: string, path: string, buttonLabel: string,
+         mainContent: string, id: number=99) {
         this.title = title;
         this.description = description;
         this.path = path;
         this.buttonLabel = buttonLabel;
+        this.id = id;
+        this.mainContent = mainContent;
 
+    }
+
+    getId() {
+        return this.id;
     }
 
     getTitle() {
@@ -44,6 +52,10 @@ export class RecordFromDB {
 
     setPath(path: string) {
         this.path = path;
+    }
+
+    setMainContent(content: string) {
+        this.mainContent = content;
     }
 
 }

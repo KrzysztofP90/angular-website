@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecordFromDB } from '../model/record';
+import { LoadingDataService } from '../service/loading-data.service';
 
 
 @Component({
@@ -9,8 +10,11 @@ import { RecordFromDB } from '../model/record';
 })
 export class IntroComponent implements OnInit {
 
-  @Input() records: Array<RecordFromDB>;
-  constructor() { }
+  private records: Array<RecordFromDB>;
+  
+  constructor(private dataService: LoadingDataService) { 
+    this.records = this.dataService.getFakeRecordsArray();
+  }
 
   ngOnInit() {
   }

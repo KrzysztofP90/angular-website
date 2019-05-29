@@ -73,3 +73,7 @@
     width: 0%;
     left: 50%;
     }
+
+    .nav-link:hover {
+        cursor: pointer;
+    }

@@ -1,24 +1,40 @@
-<nav class="navbar navbar-dark red lighten-1 mb-4">
+<div class="container">
+<nav class="navbar navbar-dark red lighten-1 mb-4 col-sm">
 
   <a class="navbar-brand" href="#">Napraw Dach!</a>
-
+  
   <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23"
     aria-controls="navbarSupportedContent23" aria-expanded="false" aria-label="Toggle navigation">
     <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
   </button>
-
+  <app-new-one></app-new-one>
   <div class="collapse navbar-collapse" id="navbarSupportedContent23">
 
-    <ul class="navbar-nav mr-auto">
+    <ul class="nav nav-pills nav-fill">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home page <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href="#">Home page <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" *ngFor='let rec of records'>
-        <a class="nav-link" href={{rec.path}}>{{rec.title}}</a>
+      <li class="nav-item" *ngFor='let rec of records' (click)="selectRecordById(rec.id)">
+        <a class="nav-link text-light">
+          {{rec.title}}
+        </a>
+      </li>
+      <li class="nav-item" routerLink='/gallery'>
+        <a class="nav-link text-light" >
+            Our realizations
+          </a>
+      </li>
+      <li li class="nav-item" routerLink='/contact'>
+        <a class="nav-link text-light" >
+            Contact
+          </a>
       </li>
     </ul>
   </div>
+  
 </nav>
+</div>
+
 
 
 
