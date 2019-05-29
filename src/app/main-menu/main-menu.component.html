@@ -14,8 +14,20 @@
       <li class="nav-item active">
         <a class="nav-link text-light" href="#">Home page <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" *ngFor='let rec of records'>
-        <a class="nav-link text-light" routerLink={{rec.path}} >{{rec.title}}</a>
+      <li class="nav-item" *ngFor='let rec of records' (click)="selectRecordById(rec.id)">
+        <a class="nav-link text-light">
+          {{rec.title}}
+        </a>
+      </li>
+      <li class="nav-item" routerLink='/gallery'>
+        <a class="nav-link text-light" >
+            Our realizations
+          </a>
+      </li>
+      <li li class="nav-item" routerLink='/contact'>
+        <a class="nav-link text-light" >
+            Contact
+          </a>
       </li>
     </ul>
   </div>

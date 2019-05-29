@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import $ from '../../../node_modules/jquery';
 import { RecordFromDB } from '../model/record';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,7 +11,7 @@ import { RecordFromDB } from '../model/record';
 export class MainMenuComponent implements OnInit {
 
   @Input() records: Array<RecordFromDB>;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -18,5 +19,9 @@ export class MainMenuComponent implements OnInit {
         $('.animated-icon2').toggleClass('open');
       });
     });
+  }
+
+  selectRecordById(id: number) {
+    this.router.navigate(['option', id]);
   }
 }
