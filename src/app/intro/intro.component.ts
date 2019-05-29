@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecordFromDB } from '../model/record';
-import { FakeRecordsGenerator } from '../model/generator';
-
+import { LoadingDataService } from '../service/loading-data.service';
 
 
 @Component({
@@ -11,13 +10,10 @@ import { FakeRecordsGenerator } from '../model/generator';
 })
 export class IntroComponent implements OnInit {
 
-  private generator: FakeRecordsGenerator;
   private records: Array<RecordFromDB>;
-  // @Input() records: Array<RecordFromDB>;
-
-  constructor() { 
-    this.generator = new FakeRecordsGenerator();
-    this.records = this.generator.createExampleRecordsArray();
+  
+  constructor(private dataService: LoadingDataService) { 
+    this.records = this.dataService.getFakeRecordsArray();
   }
 
   ngOnInit() {

@@ -8,13 +8,15 @@ import { RecordFromDB } from '../model/record';
 export class LoadingDataService {
 
   private generator: FakeRecordsGenerator;
+  private fakeRecordsArray: Array<RecordFromDB>;
 
   constructor() { 
     this.generator = new FakeRecordsGenerator();
+    this.fakeRecordsArray = this.generator.createExampleRecordsArray();
   }
 
   getFakeRecordsArray(): Array<RecordFromDB> {
-    return this.generator.createExampleRecordsArray();
+    return this.fakeRecordsArray;
   }
 }
 
