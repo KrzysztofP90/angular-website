@@ -1,0 +1,6 @@
+div#form-div {
+    background: rgba(234, 233, 231, 0.7);
+    border-radius: 5px;
+    border:groove;
+    border-color: gray;
+}
