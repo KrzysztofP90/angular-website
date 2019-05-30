@@ -35,10 +35,10 @@ export class FakeRecordsGenerator {
     createExampleRecordsArray() {
         const rec1 = new RecordFromDB('First title', this.descriptionArr[0],
         'option/0', 'Read more', this.mainContentArr[0], 'assets/builder.jpg',
-        'assets/builder2.jpeg',0);
+        'assets/builder2.jpg',0);
         const rec2 = new RecordFromDB('Second title',this.descriptionArr[1],
         'option/1', 'Read more', this.mainContentArr[1],'assets/builder3.jpg',
-        'assets/builder4.jpeg', 1);
+        'assets/builder4.jpg', 1);
         const rec3 = new RecordFromDB('Third title',this.polishDescription,
         'option/2', 'Read more', this.polishMainContent,'assets/builder7.jpg',
         'assets/builder5.jpg',2);
