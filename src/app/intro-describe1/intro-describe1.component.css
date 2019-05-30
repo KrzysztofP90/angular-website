@@ -1,13 +1,17 @@
 div {
-    color: aliceblue;
+    /* color: aliceblue; */
+    background-color: #EAE9E7;
+    opacity: 0.7;
 }
 
 h1 {
-    color: aliceblue;
+    color:	#121413;
     font-size: 2vw;
+    opacity: 1.0;
 }
 
 p{
     font-size: 1em;
-    color: aliceblue;
+    color: 	#121413;
+    opacity: 1.0;
 }

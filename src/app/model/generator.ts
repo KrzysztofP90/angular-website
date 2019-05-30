@@ -18,6 +18,10 @@ export class FakeRecordsGenerator {
     +'\n\nFusce placerat, dolor non facilisis pretium, dui sapien ultricies risus, ut laoreet augue felis id metus. Fusce laoreet felis ut velit vulputate, vel consectetur risus efficitur. Proin sit amet risus magna. Mauris sagittis, eros a accumsan rhoncus, felis erat porta dui, ac tristique ante odio at magna. Nam vel eleifend nisl, id accumsan felis. Sed ut rutrum massa. Etiam feugiat semper quam, vitae eleifend lorem porta ultrices. Proin at leo velit. Duis sit amet lacus eu ex venenatis efficitur vitae in ante. Proin rhoncus mattis viverra. Quisque bibendum felis sed arcu fermentum ultricies. Vestibulum ac massa eu ante volutpat varius. Morbi dignissim, nulla in tempor malesuada, dui sem hendrerit magna, sed viverra arcu diam eget magna.'
     ];
 
+    private polishText: string = 'Książka "Opowieść Wigilijna" opowiada o samotnym skąpcu Scroogu, który jak każde święta Bożego Narodzenia miał zamiar spędzić w swym kantorze gdyż uważał to za święto wymyślone przez szaleńców i głupców, którzy nie potrafią do niczego w życiu dojść. Święta Bożego Narodzenia szczególnie nie traktował zbyt poważnie. '
+
+    +'\nJak każdego dnia Scrooger siedziała w swym kantorze, lecz ten dzień nie był tak zwykły, był to dzień przed Bożym Narodzeniem. Co roku jego siostrzeniec próbował zaprosić go na święta lecz nie udawało mu się przekonać Scroogera że święta to najpiękniejsze dni w naszym życiu i że nie powinniśmy ich traktować obojętnie. Tego dnia zawitało w jego kantorze dwóch mężczyzn, którzy zbierali fundusze na zakup żywności dla biednych, lecz zawiedli się i nic nie otrzymali od naszego bogatego bohatera.';
+
     constructor() {
         // this.mainContentArr = this.convertTextArrNewLineToHTMLTag(this.mainContentArr);
         // this.descriptionArr = this.convertTextArrNewLineToHTMLTag(this.descriptionArr);
@@ -36,7 +40,7 @@ export class FakeRecordsGenerator {
         const rec2 = new RecordFromDB('Second title',this.descriptionArr[1],
         'option/1', 'Read more', this.mainContentArr[1],1);
         const rec3 = new RecordFromDB('Third title',this.descriptionArr[2],
-        'option/2', 'Read more', this.mainContentArr[2],2);
+        'option/2', 'Read more', this.polishText,2);
         const rec4 = new RecordFromDB('About us',this.descriptionArr[3],
         'option/3',  'Read more', this.mainContentArr[3],3);
         const records: Array<RecordFromDB> = [rec1, rec2, rec3, rec4];

@@ -77,3 +77,24 @@
     .nav-link:hover {
         cursor: pointer;
     }
+
+    .menu-button-div {
+        background-color: #EAE9E7;
+        border: ridge;
+        border-color: grey;
+        border-radius: 5%;
+        margin-left: 10%;
+        margin-top: 5%;
+        opacity: 0.7;
+    }
+
+    .menu-button-div :hover {
+        opacity: 0.5;
+    }
+
+
+    p#info {
+        font-size: 3vh;
+        color:aliceblue;
+    }
+
