@@ -8,19 +8,32 @@ import { RecordFromDB } from '../model/record';
 export class LoadingDataService {
 
   private generator: FakeRecordsGenerator;
-  private fakeRecordsArray: Array<RecordFromDB>;
+  private recordsArray: Array<RecordFromDB>;
+  private gallery: RecordFromDB;
+  private contact: RecordFromDB;
+
 
   constructor() { 
     this.generator = new FakeRecordsGenerator();
-    this.fakeRecordsArray = this.generator.createExampleRecordsArray();
+    this.recordsArray = this.generator.createExampleRecordsArray();
+    this.gallery = this.generator.createExampleGalleryRecord();
+    this.contact = this.generator.createExampleContactRecord();
   }
 
   getFakeRecordsArray(): Array<RecordFromDB> {
-    return this.fakeRecordsArray;
+    return this.recordsArray;
+  }
+
+  getGallery() {
+    return this.gallery;
+  }
+
+  getContact() {
+    return this.contact;
   }
 
   getFakeRecordByPath(path: string): RecordFromDB {
-    for (const rec of this.fakeRecordsArray) {
+    for (const rec of this.recordsArray) {
         const recordPath = rec.getPath();
         if (recordPath === path) {
             return rec;
