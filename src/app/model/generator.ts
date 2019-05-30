@@ -49,6 +49,20 @@ export class FakeRecordsGenerator {
         return records;
       }
 
+      createExampleContactRecord() {
+        return new RecordFromDB("Contact", "We invite to cooperation!\n "+
+        "phone 888999000 email example@gmail.com","","Quick contact",
+        "phone 888999000 email\n\n example@gmail.com", "assets/minicontact.jpg",
+        "assets/contact.jpeg");
+      }
+
+      createExampleGalleryRecord() {
+        return new RecordFromDB("Our Realizations", "Amoung our customers are Chevron,"+
+        "Marathon Oil, BrukBet and Gaspol","","Watch gallery",
+        "", "assets/gallery.jpg",
+        "");
+      }
+
       /// on future
       convertTextArrNewLineToHTMLTag(textArr: string[]) {
           for (let i = 0; i < textArr.length; i++) {
