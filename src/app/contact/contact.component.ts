@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RecordFromDB } from '../model/record';
+import { LoadingDataService } from '../service/loading-data.service';
+
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  private contact: RecordFromDB;
+
+  constructor(private dataService: LoadingDataService) {}
 
   ngOnInit() {
+    this.contact = this.dataService.getContact();
   }
 
 }

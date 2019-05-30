@@ -1,6 +1,26 @@
 <div class="w-100 flex-row justify-content-center">
   <div>
-    <!-- contact data form fake DB -->
+    <div class="container w-100">
+        <div class="row justify-content-center text-white">
+          <div class="col-12 col-md-10">
+            <div id="content" class="border border-dark rounded flex-column align-items-center p-sm-5 m-sm-5 mt-5">
+              <h1 style="white-space: wrap;" class="m-3">{{contact.title}}</h1>
+              <br>
+              <p style="white-space: wrap;" class="m-3">{{contact.description}}</p>
+              <br>
+              <div class="w-100">
+                <img class="mini" src={{contact.mainImagePath}}>
+              </div>
+              <br>
+              <h3 style="white-space: wrap;" class="m-3">{{contact.mainContent}}</h3>
+              <br>
+              <h2 class="text-dark">Or send email now by below form!</h2>
+              <br>
+              <a routerLink="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Back to main site</a>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   <br><br>
   <div class="container w-100" id="form-div">
@@ -51,7 +71,6 @@
                 <div class="form-group">
                   <div class="col-md-6 text-right">
                     <button type="submit" class="btn btn-primary btn-lg">Send</button>
-                    <a routerLink="/" class="btn btn-primary btn-lg active ml-5" role="button" aria-pressed="true">Back to main site</a>
                   </div>
                 </div>
               </fieldset>
