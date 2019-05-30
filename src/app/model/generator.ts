@@ -51,8 +51,8 @@ export class FakeRecordsGenerator {
 
       createExampleContactRecord() {
         return new RecordFromDB("Contact", "We invite to cooperation!\n \n "+
-        "phone 888999000 \nemail example@gmail.com","/contact","Quick contact",
-        "phone 888999000 email\n\n example@gmail.com", "assets/minicontact.jpg",
+        "Phone: 888999000 \nEmail: example@gmail.com","/contact","Quick contact",
+        "Phone: 888999000 \nEmail: example@gmail.com", "assets/minicontact.jpg",
         "assets/contact.jpeg");
       }
 
