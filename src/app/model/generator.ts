@@ -34,13 +34,17 @@ export class FakeRecordsGenerator {
 
     createExampleRecordsArray() {
         const rec1 = new RecordFromDB('First title', this.descriptionArr[0],
-        'option/0', 'Read more', this.mainContentArr[0],0);
+        'option/0', 'Read more', this.mainContentArr[0], 'assets/builder.jpg',
+        'assets/builder2.jpeg',0);
         const rec2 = new RecordFromDB('Second title',this.descriptionArr[1],
-        'option/1', 'Read more', this.mainContentArr[1],1);
+        'option/1', 'Read more', this.mainContentArr[1],'assets/builder3.jpg',
+        'assets/builder4.jpeg', 1);
         const rec3 = new RecordFromDB('Third title',this.polishDescription,
-        'option/2', 'Read more', this.polishMainContent,2);
+        'option/2', 'Read more', this.polishMainContent,'assets/builder7.jpg',
+        'assets/builder5.jpg',2);
         const rec4 = new RecordFromDB('About us',this.descriptionArr[3],
-        'option/3',  'Read more', this.mainContentArr[3],3);
+        'option/3',  'Read more', this.mainContentArr[3],'assets/cat-4151445_960_720.jpg',
+        'assets/roof.jpeg', 3);
         const records: Array<RecordFromDB> = [rec1, rec2, rec3, rec4];
         return records;
       }

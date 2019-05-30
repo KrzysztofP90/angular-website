@@ -6,16 +6,19 @@ export class RecordFromDB {
     private buttonLabel: string;
     private mainContent: string;
     private id: number;
+    private miniImagePath: string;
+    private mainImagePath: string;
 
     constructor(title: string, description: string, path: string, buttonLabel: string,
-         mainContent: string, id: number = 99) {
+         mainContent: string, miniImagePath: string, mainImagePath: string, id: number = 99) {
         this.title = title;
         this.description = description;
         this.path = path;
         this.buttonLabel = buttonLabel;
         this.id = id;
         this.mainContent = mainContent;
-
+        this.miniImagePath = miniImagePath;
+        this.mainImagePath = mainImagePath;
     }
 
     getId() {
@@ -56,6 +59,14 @@ export class RecordFromDB {
 
     setMainContent(content: string) {
         this.mainContent = content;
+    }
+
+    getMiniImagePath() {
+        return this.miniImagePath;
+    }
+
+    getMainImagePath() {
+        return this.mainImagePath;
     }
 
 }
