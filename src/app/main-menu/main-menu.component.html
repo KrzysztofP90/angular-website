@@ -13,7 +13,7 @@
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item active">
           <div class="menu-button-div">
-        <a class="nav-link text-dark font-weight-bold" routerLink="/">Home page <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-dark font-weight-bold" routerLink="/">Home page <span class="sr-only">(current)</span></a>
           </div>
       </li>
       <li class="nav-item" *ngFor='let rec of records' (click)="selectRecordById(rec.id)">
@@ -23,23 +23,22 @@
         </a>
         </div>
       </li>
-      <li class="nav-item" routerLink='/gallery'>
+      <li class="nav-item" routerLink="gallery">
         <div class="menu-button-div">
-        <a class="nav-link text-dark font-weight-bold" >
-            Our realizations
+          <a class="nav-link text-dark font-weight-bold">
+            Our realizations 
           </a>
         </div>
       </li>
-      <li li class="nav-item" routerLink='/contact'>
+      <li li class="nav-item" routerLink="contact">
         <div class="menu-button-div">
-        <a class="nav-link text-dark font-weight-bold" >
+          <a class="nav-link text-dark font-weight-bold">
             Contact
           </a>
         </div>
       </li>
     </ul>
   </div>
-  
 </nav>
 </div>
 

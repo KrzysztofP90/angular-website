@@ -98,3 +98,7 @@
         color:aliceblue;
     }
 
+    .nav-item {
+        border: none;
+        outline: none;
+      }
