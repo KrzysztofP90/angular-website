@@ -1,10 +1,8 @@
 p,h1,h3 {
     max-width: 100%;
-    word-break: break-all;
     color:#121413;
 }
 div#content {
-    word-break: break-all;
     background-color: #EAE9E7;
     opacity: 0.7; 
 }

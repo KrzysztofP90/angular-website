@@ -18,14 +18,9 @@ export class FakeRecordsGenerator {
     +'\n\nFusce placerat, dolor non facilisis pretium, dui sapien ultricies risus, ut laoreet augue felis id metus. Fusce laoreet felis ut velit vulputate, vel consectetur risus efficitur. Proin sit amet risus magna. Mauris sagittis, eros a accumsan rhoncus, felis erat porta dui, ac tristique ante odio at magna. Nam vel eleifend nisl, id accumsan felis. Sed ut rutrum massa. Etiam feugiat semper quam, vitae eleifend lorem porta ultrices. Proin at leo velit. Duis sit amet lacus eu ex venenatis efficitur vitae in ante. Proin rhoncus mattis viverra. Quisque bibendum felis sed arcu fermentum ultricies. Vestibulum ac massa eu ante volutpat varius. Morbi dignissim, nulla in tempor malesuada, dui sem hendrerit magna, sed viverra arcu diam eget magna.'
     ];
 
-    private polishText: string = 'Książka "Opowieść Wigilijna" opowiada o samotnym skąpcu Scroogu, który jak każde święta Bożego Narodzenia miał zamiar spędzić w swym kantorze gdyż uważał to za święto wymyślone przez szaleńców i głupców, którzy nie potrafią do niczego w życiu dojść. Święta Bożego Narodzenia szczególnie nie traktował zbyt poważnie. '
+    private polishMainContent: string = 'Książka "Opowieść Wigilijna" opowiada o samotnym skąpcu Scroogu, który jak każde święta Bożego Narodzenia miał zamiar spędzić w swym kantorze gdyż uważał to za święto wymyślone przez szaleńców i głupców, którzy nie potrafią do niczego w życiu dojść. Święta Bożego Narodzenia szczególnie nie traktował zbyt poważnie. '
 
     +'\nJak każdego dnia Scrooger siedziała w swym kantorze, lecz ten dzień nie był tak zwykły, był to dzień przed Bożym Narodzeniem. Co roku jego siostrzeniec próbował zaprosić go na święta lecz nie udawało mu się przekonać Scroogera że święta to najpiękniejsze dni w naszym życiu i że nie powinniśmy ich traktować obojętnie. Tego dnia zawitało w jego kantorze dwóch mężczyzn, którzy zbierali fundusze na zakup żywności dla biednych, lecz zawiedli się i nic nie otrzymali od naszego bogatego bohatera.';
-
-    constructor() {
-        // this.mainContentArr = this.convertTextArrNewLineToHTMLTag(this.mainContentArr);
-        // this.descriptionArr = this.convertTextArrNewLineToHTMLTag(this.descriptionArr);
-    }
 
     private descriptionArr: string[] = [ 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lorem sem, interdum sit amet auctor eget, malesuada ut risus! \n\n Cras nec dolor eu enim dignissim blandit. Fusce nec tempus diam. Nunc leo justo, interdum vitae venenatis vitae, tempus in lectus.\n \nCurabitur vehicula dolor a viverra mattis. Sed at erat eu ipsum porttitor volutpat. Aliquam vehicula ligula non placerat semper. Fusce eu vestibulum nisi, sit amet efficitur odio. Nullam mi ipsum, blandit at velit id, suscipit porta metus. Quisque ultricies non turpis a rutrum. Donec vestibulum ex interdum erat aliquam finibus. Nam congue gravida leo at fringilla. Aliquam pharetra imperdiet est vel consequat. Sed vestibulum sem sit amet pulvinar pellentesque. Ut nec libero eget elit aliquet venenatis. Ut varius risus in leo laoreet sagittis.'
     , 'Maecenas interdum nunc eu ligula posuere, ac condimentum libero dapibus. Nulla placerat nunc a dignissim ornare. Vivamus efficitur auctor pretium. Aenean eu lacus sit amet augue sodales tincidunt. Nunc commodo dui arcu, sed porta nisi semper at. In hac habitasse platea dictumst. \n\nPraesent pulvinar, arcu a venenatis efficitur, urna diam scelerisque enim, et posuere quam dui at dui. In scelerisque justo et rhoncus facilisis. In tempor quam at ligula iaculis ultrices. Nam eget aliquet diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas nec eros mauris. Vivamus eget pretium ante, et congue tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nunc felis, feugiat non tristique accumsan, fermentum vel tellus.'
@@ -33,27 +28,31 @@ export class FakeRecordsGenerator {
     ,   'Mauris ac tristique metus! \n\n Sed semper sapien elit, ut accumsan lectus auctor sed. Fusce nulla neque, iaculis vitae urna ut, lobortis luctus turpis. Nunc venenatis volutpat fermentum. Sed cursus mi ut turpis vehicula, bibendum elementum felis venenatis. Suspendisse odio purus, mollis nec nulla faucibus, maximus ultricies lectus. Nam auctor pharetra leo ut venenatis. Nam velit nibh, eleifend et suscipit et, ullamcorper aliquam ligula. \n\nVestibulum massa justo, malesuada id pharetra vel, ornare vestibulum nibh. Ut gravida in metus sit amet pretium. Praesent dapibus porta metus eu porta. Fusce imperdiet ac enim nec facilisis. Ut finibus tempus metus, nec posuere enim pretium sit amet. Duis vel dui id quam varius rutrum. Nam id mattis orci, a pulvinar velit.'
     ];
 
+    private polishDescription: string = 'Stary kupiec, Ebenezer Scrooge, znany ze swego skąpstwa, powraca w Wigilię Bożego Narodzenia do domu po pracy w swoim kantorze. Tam zjawia mu się duch jego wspólnika, Jakuba Marleya, który ostrzega: jeśli Scrooge się nie zmieni, po śmierci czeka go wieczna męka. Zjawa zapowiada także odwiedziny trzech innych duchów, dzięki którym los starego skąpca może się odmienić. Duchy rzeczywiście przybywają i ukazują Ebenezerowi przeszłość, teraźniejszość i przyszłość (jeśli jego życie się nie zmieni)';
+
+    constructor() {}
 
     createExampleRecordsArray() {
         const rec1 = new RecordFromDB('First title', this.descriptionArr[0],
         'option/0', 'Read more', this.mainContentArr[0],0);
         const rec2 = new RecordFromDB('Second title',this.descriptionArr[1],
         'option/1', 'Read more', this.mainContentArr[1],1);
-        const rec3 = new RecordFromDB('Third title',this.descriptionArr[2],
-        'option/2', 'Read more', this.polishText,2);
+        const rec3 = new RecordFromDB('Third title',this.polishDescription,
+        'option/2', 'Read more', this.polishMainContent,2);
         const rec4 = new RecordFromDB('About us',this.descriptionArr[3],
         'option/3',  'Read more', this.mainContentArr[3],3);
         const records: Array<RecordFromDB> = [rec1, rec2, rec3, rec4];
         return records;
       }
 
+      /// on future
       convertTextArrNewLineToHTMLTag(textArr: string[]) {
           for (let i = 0; i < textArr.length; i++) {
             textArr[i] = this.convertNewLineToBrHTMLtag(textArr[i]);
           }
           return textArr;
       }
-
+      /// on future
       convertNewLineToBrHTMLtag(text: string) {
         return text.split("\n").join("<br/>");
       }
