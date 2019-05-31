@@ -12,7 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecordViewComponent } from './record-view/record-view.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 
 @NgModule({
@@ -30,7 +32,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
