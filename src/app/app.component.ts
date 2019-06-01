@@ -10,10 +10,11 @@ import { PrepareDataHelperService } from './service/prepare-data-helper.service'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoadingFakeDataService,
+  providers: [
+    LoadingFakeDataService,
     FirebaseDaoService,
-    PrepareDataHelperService]
-
+    PrepareDataHelperService
+  ]
 })
 
 export class AppComponent implements OnInit {
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.recordsObserv = this.dao.getRecordsObservable();
     this.recordsObserv.subscribe(records => {
-      this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records); });
+      this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records); 
+    });
   }
 
   onActivate(event) {
