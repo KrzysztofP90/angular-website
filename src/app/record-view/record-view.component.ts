@@ -19,17 +19,12 @@ export class RecordViewComponent implements OnInit {
   private currentId: number;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
-  constructor(private router: Router, private dataService: LoadingFakeDataService, 
-    private activatedRoute: ActivatedRoute, private dao: FirebaseDaoService,
-    private helper: PrepareDataHelperService ) {}
+  constructor(private router: Router, public dataService: LoadingFakeDataService, 
+    private activatedRoute: ActivatedRoute, public dao: FirebaseDaoService,
+    public helper: PrepareDataHelperService ) {}
 
   ngOnInit() {
-    // this.records = this.dataService.getFakeRecordsArray();
-    
-    this.recordsObserv = this.dao.getRecordsObservable();  /// think about separate it to service
-    this.recordsObserv.subscribe(records => {
-      this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records);
-    });
+    this.records = this.helper.getRecordsFromFirebase();
     this.activatedRoute.params.subscribe(routeParams => {
       this.setCurrentId(routeParams.id);
     });

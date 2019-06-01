@@ -22,12 +22,13 @@ export class AppComponent implements OnInit {
   private records: Array<RecordFromDB>;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
-  constructor(private dao: FirebaseDaoService, private helper: PrepareDataHelperService) {}
+  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
     this.recordsObserv = this.dao.getRecordsObservable();
     this.recordsObserv.subscribe(records => {
-      this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records); 
+      this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(records);
+      this.records = this.helper.getRecordsFromFirebase();
     });
   }
 

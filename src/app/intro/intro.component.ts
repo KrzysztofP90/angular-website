@@ -19,13 +19,13 @@ export class IntroComponent implements OnInit {
   private contact: RecordFromDB;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
-  constructor(private dataService: LoadingFakeDataService, private dao: FirebaseDaoService,
-     private helper: PrepareDataHelperService) {}
+  constructor(public dataService: LoadingFakeDataService, public dao: FirebaseDaoService,
+     public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
-    this.recordsObserv = this.dao.getRecordsObservable(); 
-    this.recordsObserv.subscribe(records => {
-      this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records);
+    this.recordsObserv = this.dao.getRecordsObservable();
+    this.recordsObserv.subscribe( rec => {
+      this.records = this.helper.getRecordsFromFirebase();
     });
     /// gallery and contact temporary 
     this.contact = this.dataService.getContact();
