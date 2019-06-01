@@ -17,12 +17,15 @@
           </div>
       </li>
       <li class="nav-item" *ngFor='let rec of records' (click)="selectRecordById(rec.id)">
+      <div *ngIf='rec.id!=99'>
         <div class="menu-button-div">
         <a class="nav-link text-dark font-weight-bold">
           {{rec.title}}
         </a>
         </div>
+      </div>
       </li>
+    
       <li class="nav-item" routerLink="gallery">
         <div class="menu-button-div">
           <a class="nav-link text-dark font-weight-bold">
