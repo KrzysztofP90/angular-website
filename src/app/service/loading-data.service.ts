@@ -5,7 +5,7 @@ import { RecordFromDB } from '../model/record';
 @Injectable({
   providedIn: 'root'
 })
-export class LoadingDataService {
+export class LoadingFakeDataService {
 
   private generator: FakeRecordsGenerator;
   private recordsArray: Array<RecordFromDB>;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecordFromDB } from '../app/model/record';
-import { LoadingDataService } from '../app/service/loading-data.service';
+import { LoadingFakeDataService } from '../app/service/loading-data.service';
 import { FirebaseDaoService } from './service/firebase-dao.service';
 import { FirebaseRecord } from './model/firebase-record';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { PrepareDataHelperService } from './service/prepare-data-helper.service'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoadingDataService,
+  providers: [LoadingFakeDataService,
     FirebaseDaoService,
     PrepareDataHelperService]
 

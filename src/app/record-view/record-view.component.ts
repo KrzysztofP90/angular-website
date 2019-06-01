@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RecordFromDB } from '../model/record';
-import { LoadingDataService} from '../service/loading-data.service';
+import { LoadingFakeDataService } from '../service/loading-data.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class RecordViewComponent implements OnInit {
   private records: Array<RecordFromDB>;
   private currentId: number;
 
-  constructor(private router: Router, private dataService: LoadingDataService, 
+  constructor(private router: Router, private dataService: LoadingFakeDataService, 
     private activatedRoute: ActivatedRoute ) {}
 
   ngOnInit() {

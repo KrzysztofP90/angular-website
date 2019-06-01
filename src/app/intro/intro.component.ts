@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RecordFromDB } from '../model/record';
-import { LoadingDataService } from '../service/loading-data.service';
+import { LoadingFakeDataService } from '../service/loading-data.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class IntroComponent implements OnInit {
   private gallery: RecordFromDB;
   private contact: RecordFromDB;
   
-  constructor(private dataService: LoadingDataService) { 
+  constructor(private dataService: LoadingFakeDataService) { 
     this.records = this.dataService.getFakeRecordsArray();
     this.contact = this.dataService.getContact();
     this.gallery = this.dataService.getGallery();
