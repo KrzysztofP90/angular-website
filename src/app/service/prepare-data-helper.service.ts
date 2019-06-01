@@ -23,18 +23,7 @@ export class PrepareDataHelperService {
   private records: Array<RecordFromDB>;
 
   constructor() {}
-
-  // convertFirebaseRecordsArrayToUsefulRecordsArray(fbRecords: FirebaseRecord[]) {
-  //   const arrayOfRecords = new Array<RecordFromDB>();
-  //   let id = 0;
-  //   for (const rec of fbRecords) {
-  //     arrayOfRecords.push(new RecordFromDB(rec.title, rec.description,
-  //       rec.path + id.toString(), rec.buttonLabel, rec.mainContent, this.arrayOfMiniImagePath[id],
-  //       this.arrayOfImagePath[id], id));
-  //     id++;
-  //   }
-  //   return arrayOfRecords;
-  // }
+  
   createUsefulRecordsArrayFromFirebaseRecordsArray(fbRecords: FirebaseRecord[]) {
     const arrayOfRecords = new Array<RecordFromDB>();
     let id = 0;
