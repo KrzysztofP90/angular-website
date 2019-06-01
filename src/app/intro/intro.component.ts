@@ -23,7 +23,7 @@ export class IntroComponent implements OnInit {
      private helper: PrepareDataHelperService) {}
 
   ngOnInit() {
-    this.recordsObserv = this.dao.getRecordsObservable();
+    this.recordsObserv = this.dao.getRecordsObservable(); 
     this.recordsObserv.subscribe(records => {
       this.records = this.helper.convertFirebaseRecordsArrayToUsefulRecordsArray(records);
     });

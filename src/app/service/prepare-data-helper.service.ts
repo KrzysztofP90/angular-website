@@ -24,11 +24,11 @@ export class PrepareDataHelperService {
 
   convertFirebaseRecordsArrayToUsefulRecordsArray(fbRecords: FirebaseRecord[]) {
     const arrayOfRecords = new Array<RecordFromDB>();
-    let id = 1;
+    let id = 0;
     for (const rec of fbRecords) {
       arrayOfRecords.push(new RecordFromDB(rec.title, rec.description,
-        rec.path + id.toString(), rec.buttonLabel, rec.mainContent, this.arrayOfMiniImagePath[id - 1],
-        this.arrayOfImagePath[id - 1], id));
+        rec.path + id.toString(), rec.buttonLabel, rec.mainContent, this.arrayOfMiniImagePath[id],
+        this.arrayOfImagePath[id], id));
       id++;
     }
     return arrayOfRecords;
