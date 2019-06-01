@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoadingFakeDataService } from './loading-data.service';
+import { FirebaseDaoService } from './firebase-dao.service';
 
-describe('LoadingDataService', () => {
+describe('FirebaseDaoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LoadingFakeDataService = TestBed.get(LoadingFakeDataService);
+    const service: FirebaseDaoService = TestBed.get(FirebaseDaoService);
     expect(service).toBeTruthy();
   });
 });

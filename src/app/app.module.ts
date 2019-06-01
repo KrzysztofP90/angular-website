@@ -10,6 +10,11 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecordViewComponent } from './record-view/record-view.component';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 
 @NgModule({
@@ -25,7 +30,9 @@ import { RecordViewComponent } from './record-view/record-view.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

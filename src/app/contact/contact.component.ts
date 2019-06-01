@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecordFromDB } from '../model/record';
-import { LoadingDataService } from '../service/loading-data.service';
+import { LoadingFakeDataService } from '../service/loading-data.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit {
 
   private contact: RecordFromDB;
 
-  constructor(private dataService: LoadingDataService) {}
+  constructor(private dataService: LoadingFakeDataService) {}
 
   ngOnInit() {
     this.contact = this.dataService.getContact();

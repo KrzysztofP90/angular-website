@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecordFromDB } from '../app/model/record';
-import { LoadingDataService } from '../app/service/loading-data.service';
+import { LoadingFakeDataService } from '../app/service/loading-data.service';
+import { FirebaseDaoService } from './service/firebase-dao.service';
+import { FirebaseRecord } from './model/firebase-record';
+import { Observable } from 'rxjs';
+import { PrepareDataHelperService } from './service/prepare-data-helper.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [LoadingDataService]
+  providers: [
+    LoadingFakeDataService,
+    FirebaseDaoService,
+    PrepareDataHelperService
+  ]
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
 
   private records: Array<RecordFromDB>;
-  constructor(private dataService: LoadingDataService) {
-    /// generate fake example records not from DB
-    this.records = this.dataService.getFakeRecordsArray();
-  }
+  private recordsObserv: Observable<FirebaseRecord[]>;
 
-  getRecords() {
-    return this.records;
+  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
+
+  ngOnInit() {
+    this.recordsObserv = this.dao.getRecordsObservable();
+    this.recordsObserv.subscribe(records => {
+      this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(records);
+      this.records = this.helper.getRecordsFromFirebase();
+    });
   }
 
   onActivate(event) {

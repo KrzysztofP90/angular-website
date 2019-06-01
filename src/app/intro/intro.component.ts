@@ -1,6 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecordFromDB } from '../model/record';
-import { LoadingDataService } from '../service/loading-data.service';
+import { LoadingFakeDataService } from '../service/loading-data.service';
+import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
+import { FirebaseDaoService } from '../service/firebase-dao.service';
+import { FirebaseRecord } from '../model/firebase-record';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,13 +17,18 @@ export class IntroComponent implements OnInit {
   private records: Array<RecordFromDB>;
   private gallery: RecordFromDB;
   private contact: RecordFromDB;
-  
-  constructor(private dataService: LoadingDataService) { 
-    this.records = this.dataService.getFakeRecordsArray();
-    this.contact = this.dataService.getContact();
-    this.gallery = this.dataService.getGallery();
-  }
+  private recordsObserv: Observable<FirebaseRecord[]>;
+
+  constructor(public dataService: LoadingFakeDataService, public dao: FirebaseDaoService,
+     public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
+    this.recordsObserv = this.dao.getRecordsObservable();
+    this.recordsObserv.subscribe( rec => {
+      this.records = this.helper.getRecordsFromFirebase();
+    });
+    /// gallery and contact temporary 
+    this.contact = this.dataService.getContact();
+    this.gallery = this.dataService.getGallery();
   }
 }
