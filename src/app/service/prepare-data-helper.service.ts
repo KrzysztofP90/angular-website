@@ -23,15 +23,17 @@ export class PrepareDataHelperService {
   private records: Array<RecordFromDB>;
 
   constructor() {}
-  
+
   createUsefulRecordsArrayFromFirebaseRecordsArray(fbRecords: FirebaseRecord[]) {
     const arrayOfRecords = new Array<RecordFromDB>();
     let id = 0;
     const galleryOrContactId = 99;
     for (const rec of fbRecords) {
       if (rec.path !== 'gallery' && rec.path !== 'contact') {
-        arrayOfRecords.push(new RecordFromDB(rec.title, rec.description,
-          rec.path + id.toString(), rec.buttonLabel, rec.mainContent,
+        arrayOfRecords.push(new RecordFromDB(rec.title,
+          this.fixAndConvertNewLineSignsFromFireBase(rec.description),
+          rec.path + id.toString(), rec.buttonLabel,
+          this.fixAndConvertNewLineSignsFromFireBase(rec.mainContent),
           this.arrayOfMiniImagePath[id], this.arrayOfImagePath[id], id));
         id++;
       }
@@ -39,8 +41,9 @@ export class PrepareDataHelperService {
     for (const rec of fbRecords) {
       if (rec.path === 'gallery' || rec.path === 'contact') {
         arrayOfRecords.push(new RecordFromDB(rec.title,
-          rec.description, rec.path, rec.buttonLabel, rec.mainContent,
-           this.arrayOfMiniImagePath[id], this.arrayOfImagePath[id], galleryOrContactId));
+          this.fixAndConvertNewLineSignsFromFireBase(rec.description),rec.path,
+          rec.buttonLabel, this.fixAndConvertNewLineSignsFromFireBase(rec.mainContent),
+          this.arrayOfMiniImagePath[id], this.arrayOfImagePath[id], galleryOrContactId));
         id++;
       }
     }
@@ -49,5 +52,9 @@ export class PrepareDataHelperService {
 
   getRecordsFromFirebase() {
     return this.records;
+  }
+
+  fixAndConvertNewLineSignsFromFireBase(text: string) {
+    return text.split('\\n').join('\n');
   }
 }
