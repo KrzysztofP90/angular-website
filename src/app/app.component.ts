@@ -5,6 +5,9 @@ import { FirebaseDaoService } from './service/firebase-dao.service';
 import { FirebaseRecord } from './model/firebase-record';
 import { Observable } from 'rxjs';
 import { PrepareDataHelperService } from './service/prepare-data-helper.service';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from './animations';
+
 
 @Component({
   selector: 'app-root',
@@ -14,6 +17,10 @@ import { PrepareDataHelperService } from './service/prepare-data-helper.service'
     LoadingFakeDataService,
     FirebaseDaoService,
     PrepareDataHelperService
+  ],
+  animations: [
+    slideInAnimation
+    // animation triggers go here
   ]
 })
 
@@ -35,6 +42,11 @@ export class AppComponent implements OnInit {
   onActivate(event) {
     window.scroll(0,0);
   }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+  
 }
 
 
