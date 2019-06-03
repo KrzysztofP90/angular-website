@@ -4,13 +4,15 @@ import { ContactComponent } from '../app/contact/contact.component';
 import { IntroComponent } from '../app/intro/intro.component';
 import { RecordViewComponent } from '../app/record-view/record-view.component';
 import { GalleryComponent } from '../app/gallery/gallery.component';
+import { CmsComponent } from './cms/cms.component';
 
 
 const routes: Routes = [
   { path: '', component: IntroComponent},
   { path: 'option/:id', component: RecordViewComponent, data: {animation: 'animation'}},
   { path: 'gallery', component: GalleryComponent},
-  { path: 'contact', component: ContactComponent}
+  { path: 'contact', component: ContactComponent},
+  { path: 'cms', component: CmsComponent}
 ];
 
 @NgModule({
