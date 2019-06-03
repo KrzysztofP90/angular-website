@@ -3,6 +3,7 @@ import { FirebaseRecord } from '../model/firebase-record';
 import { RecordFromDB } from '../model/record';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,7 +42,7 @@ export class PrepareDataHelperService {
     for (const rec of fbRecords) {
       if (rec.path === 'gallery' || rec.path === 'contact') {
         arrayOfRecords.push(new RecordFromDB(rec.title,
-          this.fixAndConvertNewLineSignsFromFireBase(rec.description),rec.path,
+          this.fixAndConvertNewLineSignsFromFireBase(rec.description), rec.path,
           rec.buttonLabel, this.fixAndConvertNewLineSignsFromFireBase(rec.mainContent),
           this.arrayOfMiniImagePath[id], this.arrayOfImagePath[id], galleryOrContactId));
         id++;
@@ -50,9 +51,11 @@ export class PrepareDataHelperService {
     this.records = arrayOfRecords;
   }
 
+
   getRecordsFromFirebase() {
     return this.records;
   }
+
 
   fixAndConvertNewLineSignsFromFireBase(text: string) {
     return text.split('\\n').join('\n');
