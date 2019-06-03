@@ -1,3 +1,5 @@
 <h1>CMS SYSTEM</h1>
 
-<textarea></textarea>
+<ng-container *ngFor='let rec of records'>
+  <app-cms-record [record]="rec"></app-cms-record>
+</ng-container>
