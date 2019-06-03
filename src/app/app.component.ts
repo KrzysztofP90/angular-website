@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   }
 
   onActivate(event) {
-    window.scroll(0,0);
+    window.scroll(0,400);
   }
 
   prepareRoute(outlet: RouterOutlet) {
