@@ -14,6 +14,7 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { CmsComponent } from './cms/cms.component';
 
 
 
@@ -26,7 +27,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     GalleryComponent,
     MainMenuComponent,
     ContactComponent,
-    RecordViewComponent
+    RecordViewComponent,
+    CmsComponent
   ],
   imports: [
     BrowserModule,
