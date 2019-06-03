@@ -8,13 +8,13 @@ import { GalleryComponent } from '../app/gallery/gallery.component';
 
 const routes: Routes = [
   { path: '', component: IntroComponent},
-  { path: 'option/:id', component: RecordViewComponent},
+  { path: 'option/:id', component: RecordViewComponent, data: {animation: 'animation'}},
   { path: 'gallery', component: GalleryComponent},
   { path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
   exports: [ RouterModule ]
 })
 
