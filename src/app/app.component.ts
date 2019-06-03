@@ -5,6 +5,7 @@ import { FirebaseDaoService } from './service/firebase-dao.service';
 import { FirebaseRecord } from './model/firebase-record';
 import { Observable } from 'rxjs';
 import { PrepareDataHelperService } from './service/prepare-data-helper.service';
+import { GalleryService } from './service/gallery.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { PrepareDataHelperService } from './service/prepare-data-helper.service'
   providers: [
     LoadingFakeDataService,
     FirebaseDaoService,
-    PrepareDataHelperService
+    PrepareDataHelperService,
+    GalleryService
   ]
 })
 
