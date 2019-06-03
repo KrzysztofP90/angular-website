@@ -5,4 +5,6 @@ export interface FirebaseRecord {
     mainContent?: string;
     path?: string;
     title?: string;
+    miniImagePath?: string;
+    mainImagePath?: string;
 }
