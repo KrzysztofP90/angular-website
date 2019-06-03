@@ -11,7 +11,7 @@ export class GalleryService {
     this.loadImagesFromFirebase();
    }
 
-  private imagesFromGallery: Observable<any>;
+  private imagesFromGallery: Observable<any[]>;
 
   loadImagesFromFirebase() {
     this.imagesFromGallery = this.dao.collection('gallery-img').valueChanges();
