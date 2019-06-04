@@ -3,6 +3,7 @@ import { FirebaseDaoService } from '../service/firebase-dao.service';
 import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
 import { RecordFromDB } from '../model/record';
 import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
+import { FirebaseRecord } from '../model/firebase-record';
 
 
 @Component({
@@ -16,11 +17,15 @@ export class CmsComponent implements OnInit {
 
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) { }
 
+
+
   ngOnInit() {
     this.dao.getRecordsObservable().subscribe( rec => {
       this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(rec);
       this.records = this.helper.getRecordsFromFirebase();
     });
+
   }
+ 
 
 }
