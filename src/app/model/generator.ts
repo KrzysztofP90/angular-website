@@ -33,16 +33,16 @@ export class FakeRecordsGenerator {
     constructor() {}
 
     createExampleRecordsArray() {
-        const rec1 = new RecordFromDB('First title', this.descriptionArr[0],
+        const rec1 = new RecordFromDB("keyID",'First title', this.descriptionArr[0],
         'option/0', 'Read more', this.mainContentArr[0], 'assets/builder.jpg',
         'assets/builder2.jpg',0);
-        const rec2 = new RecordFromDB('Second title',this.descriptionArr[1],
+        const rec2 = new RecordFromDB("keyID",'Second title',this.descriptionArr[1],
         'option/1', 'Read more', this.mainContentArr[1],'assets/builder3.jpg',
         'assets/builder4.jpg', 1);
-        const rec3 = new RecordFromDB('Third title',this.polishDescription,
+        const rec3 = new RecordFromDB("keyID",'Third title',this.polishDescription,
         'option/2', 'Read more', this.polishMainContent,'assets/builder7.jpg',
         'assets/builder5.jpg',2);
-        const rec4 = new RecordFromDB('About us',this.descriptionArr[3],
+        const rec4 = new RecordFromDB("keyID",'About us',this.descriptionArr[3],
         'option/3',  'Read more', this.mainContentArr[3],'assets/cat-4151445_960_720.jpg',
         'assets/roof.jpeg', 3);
         const records: Array<RecordFromDB> = [rec1, rec2, rec3, rec4];
@@ -50,14 +50,14 @@ export class FakeRecordsGenerator {
       }
 
       createExampleContactRecord() {
-        return new RecordFromDB("Contact", "We invite to cooperation!\n \n "+
+        return new RecordFromDB("keyID","Contact", "We invite to cooperation!\n \n "+
         "Phone: 888999000 \nEmail: example@gmail.com","/contact","Quick contact",
         "Phone: 888999000 \nEmail: example@gmail.com", "assets/minicontact.jpg",
         "assets/contact.jpeg");
       }
 
       createExampleGalleryRecord() {
-        return new RecordFromDB("Our Realizations", "Amoung our customers are Chevron,"+
+        return new RecordFromDB("keyID","Our Realizations", "Amoung our customers are Chevron,"+
         "Marathon Oil, BrukBet and Gaspol","/gallery","Watch gallery",
         "", "assets/gallery.jpg",
         "");
