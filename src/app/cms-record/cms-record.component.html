@@ -1,5 +1,30 @@
-<textarea>{{record.title}}</textarea>
-<textarea>{{record.description}}</textarea>
-<img src={{record.miniImagePath}}>
-<img src={{record.mainImagePath}}>
-<textarea>{{record.mainContent}}</textarea>
+
+<div class="container w-100 column">
+    <div>
+        <h2>Title of record:</h2>
+        <textarea>{{record.title}}</textarea>
+        <button>Save</button>
+    </div>
+    <div>
+        <h2>Intro description of record:</h2>
+        <textarea rows="15" cols="50">{{record.description}}</textarea>
+        <button>Save</button>
+    </div>
+    <div>
+        <h2>Record mini image:</h2>
+        <img src={{record.miniImagePath}}>
+        <button>Upload new image</button>
+    </div>
+    <div>
+        <h2>Record main image:</h2>
+        <img src={{record.mainImagePath}}>
+        <button>Upload new image</button>
+    </div>  
+    <div>
+        <h2>Main content of record:</h2>
+        <textarea rows="30" cols="50">{{record.mainContent}}</textarea>
+        <button>Save</button>
+    </div>
+</div>
+<br>
+<br>
