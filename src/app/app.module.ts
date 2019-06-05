@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CmsComponent } from './cms/cms.component';
 import { CmsRecordComponent } from './cms-record/cms-record.component';
+import { AddRecordComponent } from './add-record/add-record.component';
 
 
 
@@ -30,7 +31,8 @@ import { CmsRecordComponent } from './cms-record/cms-record.component';
     ContactComponent,
     RecordViewComponent,
     CmsComponent,
-    CmsRecordComponent
+    CmsRecordComponent,
+    AddRecordComponent
   ],
   imports: [
     BrowserModule,
