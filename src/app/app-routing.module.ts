@@ -5,6 +5,7 @@ import { IntroComponent } from '../app/intro/intro.component';
 import { RecordViewComponent } from '../app/record-view/record-view.component';
 import { GalleryComponent } from '../app/gallery/gallery.component';
 import { CmsComponent } from './cms/cms.component';
+import { AddRecordComponent } from './add-record/add-record.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'option/:id', component: RecordViewComponent, data: {animation: 'animation'}},
   { path: 'gallery', component: GalleryComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'cms', component: CmsComponent}
+  { path: 'cms', component: CmsComponent},
+  { path: 'cms/add', component: AddRecordComponent}
 ];
 
 @NgModule({
