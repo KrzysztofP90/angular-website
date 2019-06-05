@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RecordFromDB } from '../app/model/record';
 import { LoadingFakeDataService } from '../app/service/loading-data.service';
 import { FirebaseDaoService } from './service/firebase-dao.service';
 import { FirebaseRecord } from './model/firebase-record';
@@ -27,7 +26,6 @@ import { slideInAnimation } from './animations';
 
 export class AppComponent implements OnInit {
 
-  // private records: Array<RecordFromDB>;
   private records: Array<FirebaseRecord>;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
@@ -36,21 +34,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.recordsObserv = this.dao.getRecordsObservable();
     this.recordsObserv.subscribe(records => {
-      // this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(records);
-      // this.records = this.helper.getRecordsFromFirebase();
-      this.helper.sortFireBaseArray(records);
-      this.records = records;
+    this.helper.sortFireBaseArray(records);
+    this.records = records;
     });
   }
 
   onActivate(event) {
-    window.scroll(0,400);
+    window.scroll(0, 400);
   }
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-  
 }
-
 
