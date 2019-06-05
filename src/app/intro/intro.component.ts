@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RecordFromDB } from '../model/record';
 import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
 import { FirebaseDaoService } from '../service/firebase-dao.service';
 import { FirebaseRecord } from '../model/firebase-record';
@@ -11,12 +10,10 @@ import { Observable } from 'rxjs';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css']
 })
+
 export class IntroComponent implements OnInit {
 
-  // private records: Array<RecordFromDB>;
   private records: Array<FirebaseRecord>;
-  private gallery: RecordFromDB;
-  private contact: RecordFromDB;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
