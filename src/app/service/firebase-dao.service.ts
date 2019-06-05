@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { RecordFromDB } from '../model/record';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirebaseRecord } from '../model/firebase-record';
@@ -15,27 +14,14 @@ import { AngularFirestoreDocument } from '@angular/fire/firestore';
 export class FirebaseDaoService {
 
   private recordsObservable: Observable<FirebaseRecord[]>;
-  private recordCollection: AngularFirestoreCollection<RecordFromDB>;
-  private recordDocument: AngularFirestoreDocument<RecordFromDB>;
-
+  private recordCollection: AngularFirestoreCollection<FirebaseRecord>;
+  private recordDocument: AngularFirestoreDocument<FirebaseRecord>;
   private firebaseRecords: Array<FirebaseRecord>;
-    /// example object to save
-    toSave: FirebaseRecord = {
-      buttonLabel: "new button",
-      description: "new describe",
-      mainContent: "new main content",
-      path: "option",
-      title: "New Record",
-      miniImagePath: "",
-      mainImagePath: ""
-    };
 
   constructor(private dao: AngularFirestore) {
       this.dao.collection('records').valueChanges().subscribe(rec => {
         this.firebaseRecords = rec;
       });
-
-      // this.recordsObservable = this.dao.collection('records').valueChanges();
       this.recordCollection = dao.collection('records');
       this.recordsObservable = this.dao.collection('records').snapshotChanges()
       .pipe(
@@ -53,7 +39,6 @@ export class FirebaseDaoService {
   }
 
   updateRecordInFirebase(record: Object, recordId: string) {
-    console.log("Update !!!");
     this.recordDocument = this.dao.doc('records/' + recordId);
     this.recordDocument.update(record);
   }
