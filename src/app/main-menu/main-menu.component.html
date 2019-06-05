@@ -1,15 +1,15 @@
 <div class="container">
 <nav class="navbar navbar-dark red lighten-1 mb-4 col-sm">
-
   <a href="cms"><p id="info">Log to cms</p></a>
   
   <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23"
     aria-controls="navbarSupportedContent23" aria-expanded="false" aria-label="Toggle navigation">
     <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
   </button>
-  <app-new-one></app-new-one>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent23">
 
+  <app-new-one></app-new-one>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent23">
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item active">
           <div class="menu-button-div">
@@ -17,18 +17,16 @@
           </div>
       </li>
       <ng-container *ngFor='let rec of records'>
-          <ng-container *ngIf='rec.id!=99'>
-      <li class="nav-item" (click)="selectRecordById(rec.id)">
-      
-        <div class="menu-button-div">
-        <a class="nav-link text-dark font-weight-bold">
-          {{rec.title}}
-        </a>
-        </div>
-      </li>
+          <ng-container *ngIf='rec.id!=99 && rec.id != 98'>
+            <li class="nav-item" (click)="selectRecordById(rec.id)">
+              <div class="menu-button-div">
+              <a class="nav-link text-dark font-weight-bold">
+                {{rec.title}}
+              </a>
+              </div>
+            </li>
           </ng-container>
-    </ng-container>
-    
+      </ng-container>
       <li class="nav-item">
         <div class="menu-button-div">
           <a class="nav-link text-dark font-weight-bold" href="gallery">
