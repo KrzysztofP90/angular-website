@@ -18,13 +18,13 @@ export class FirebaseDaoService {
   private recordDocument: AngularFirestoreDocument<FirebaseRecord>;
   private firebaseRecords: Array<FirebaseRecord>;
   private newIdForRecord: number;
-
+  private newPath: string;
 
   constructor(private dao: AngularFirestore) {
       this.dao.collection('records').valueChanges().subscribe(rec => {
         this.firebaseRecords = rec;
         this.setIdForNewRecord(rec);
-    
+        this.setPathForNewRecord();
       });
       this.recordCollection = dao.collection('records');
       this.recordsObservable = this.recordCollection.snapshotChanges()
@@ -42,7 +42,9 @@ export class FirebaseDaoService {
     this.newIdForRecord = record.length - 2;
   }
 
-
+  setPathForNewRecord() {
+    this.newPath = "option/" + this.newIdForRecord;
+  }
 
   getRecordsObservable() {
     return this.recordsObservable;
@@ -50,6 +52,7 @@ export class FirebaseDaoService {
 
   addRecordToFirebase(recordToAdd: FirebaseRecord) {
     recordToAdd.id = this.newIdForRecord;
+    recordToAdd.path = this.newPath;
     this.recordCollection.add(recordToAdd);
     alert("Record added!");
     console.log("Added!")
