@@ -19,6 +19,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.records = this.dao.getFirebaseRecords();
     this.helper.sortFireBaseArray(this.records);
+    this.records = this.helper.fixNewLineSignsFromFirebaseInRecordArray(this.records);
     const contactId = this.getContactRecordId(this.records);
     this.contact = this.records[contactId];
   }

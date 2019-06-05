@@ -23,6 +23,7 @@ export class IntroComponent implements OnInit {
     this.recordsObserv.subscribe( rec => {
       this.helper.sortFireBaseArray(rec);
       this.records = rec;
+      this.records = this.helper.fixNewLineSignsFromFirebaseInRecordArray(this.records);
     });
   }
 }

@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
     this.recordsObserv.subscribe(records => {
     this.helper.sortFireBaseArray(records);
     this.records = records;
+    this.records = this.helper.fixNewLineSignsFromFirebaseInRecordArray(this.records);
     });
   }
 

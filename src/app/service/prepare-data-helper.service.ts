@@ -20,6 +20,14 @@ export class PrepareDataHelperService {
     return this.records;
   }
 
+  fixNewLineSignsFromFirebaseInRecordArray(array: FirebaseRecord[]) {
+    for (const rec of array) {
+      rec.description = this.fixAndConvertNewLineSignsFromFireBase(rec.description);
+      rec.mainContent = this.fixAndConvertNewLineSignsFromFireBase(rec.mainContent);
+    }
+    return array;
+  }
+
   fixAndConvertNewLineSignsFromFireBase(text: string) {
     return text.split('\\n').join('\n');
   }

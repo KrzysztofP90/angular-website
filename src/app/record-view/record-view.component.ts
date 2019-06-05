@@ -27,6 +27,7 @@ export class RecordViewComponent implements OnInit {
     this.setCurrentId(routeParams.id);
     this.records = this.dao.getFirebaseRecords();
     this.helper.sortFireBaseArray(this.records);
+    this.records = this.helper.fixNewLineSignsFromFirebaseInRecordArray(this.records);
     });
   }
 
