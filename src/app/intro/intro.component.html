@@ -1,25 +1,9 @@
 <div class="container w-100">
   <div class="row justify-content-center" *ngFor='let rec of records'>
-    <div *ngIf='rec.id != 99'>
       <div class="col-12 col-md-12">
           <app-intro-describe1 [record]="rec"></app-intro-describe1>
       </div>
-    </div>
   </div>
-  <div class="row justify-content-center" *ngFor='let rec of records'>
-      <div *ngIf='rec.id == 99 && rec.path == "gallery"'>
-        <div class="col-12 col-md-12">
-            <app-intro-describe1 [record]="rec"></app-intro-describe1>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center" *ngFor='let rec of records'>
-        <div *ngIf='rec.id == 99 && rec.path == "contact"'>
-          <div class="col-12 col-md-12">
-              <app-intro-describe1 [record]="rec"></app-intro-describe1>
-          </div>
-        </div>
-      </div>
 </div>
 
   
