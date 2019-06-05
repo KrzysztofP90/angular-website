@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecordFromDB } from '../model/record';
 import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
 import { FirebaseDaoService } from '../service/firebase-dao.service';
+import { FirebaseRecord } from '../model/firebase-record';
 
 
 @Component({
@@ -11,12 +11,20 @@ import { FirebaseDaoService } from '../service/firebase-dao.service';
 })
 export class ContactComponent implements OnInit {
 
-  private contact: RecordFromDB;
+  private contact: FirebaseRecord;
+  private records: FirebaseRecord[];
 
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
-    this.contact = this.helper.getContactRecord();
+    this.records = this.dao.getFirebaseRecords();
+    this.helper.sortFireBaseArray(this.records);
+    const contactId = this.getContactRecordId(this.records);
+    this.contact = this.records[contactId];
+  }
+
+  getContactRecordId(arr: FirebaseRecord[]) {
+    return this.records.length - 1;
   }
 
 }
