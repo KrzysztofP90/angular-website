@@ -17,13 +17,17 @@ export class FirebaseDaoService {
   private recordCollection: AngularFirestoreCollection<FirebaseRecord>;
   private recordDocument: AngularFirestoreDocument<FirebaseRecord>;
   private firebaseRecords: Array<FirebaseRecord>;
+  private newIdForRecord: number;
+
 
   constructor(private dao: AngularFirestore) {
       this.dao.collection('records').valueChanges().subscribe(rec => {
         this.firebaseRecords = rec;
+        this.setIdForNewRecord(rec);
+    
       });
       this.recordCollection = dao.collection('records');
-      this.recordsObservable = this.dao.collection('records').snapshotChanges()
+      this.recordsObservable = this.recordCollection.snapshotChanges()
       .pipe(
       map(changes => {
         return changes.map(a => {
@@ -34,13 +38,26 @@ export class FirebaseDaoService {
       }));
   }
 
+  setIdForNewRecord(record) {
+    this.newIdForRecord = record.length - 2;
+  }
+
+
+
   getRecordsObservable() {
     return this.recordsObservable;
   }
 
-  updateRecordInFirebase(record: Object, recordId: string) {
-    this.recordDocument = this.dao.doc('records/' + recordId);
-    this.recordDocument.update(record);
+  addRecordToFirebase(recordToAdd: FirebaseRecord) {
+    recordToAdd.id = this.newIdForRecord;
+    this.recordCollection.add(recordToAdd);
+    alert("Record added!");
+    console.log("Added!")
+  }
+
+  updateRecordInFirebase(updatedRecord: FirebaseRecord, record: FirebaseRecord) {
+    this.recordDocument = this.dao.doc('records/' + record.idKey);
+    this.recordDocument.update(updatedRecord);
   }
 
   getFirebaseRecords() {

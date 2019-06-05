@@ -18,9 +18,9 @@ export class AddRecordComponent implements OnInit {
     miniImagePath: "",
     buttonLabel: "",
     mainContent: "",
-    path: "",
+    path: "option/",
     title: "",
-    id: 0
+    id: 0,
   };
 
   private newId: number;
