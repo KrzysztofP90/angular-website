@@ -13,16 +13,21 @@ import { FirebaseRecord } from '../model/firebase-record';
 })
 export class CmsComponent implements OnInit {
 
-  private records: Array<RecordFromDB>;
+  // private records: Array<RecordFromDB>;
+  private records: Array<FirebaseRecord>;
 
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) { }
 
 
 
   ngOnInit() {
-    this.dao.getRecordsObservable().subscribe( rec => {
-      this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(rec);
-      this.records = this.helper.getRecordsFromFirebase();
+    // this.dao.getRecordsObservable().subscribe( rec => {
+    //   this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(rec);
+    //   this.records = this.helper.getRecordsFromFirebase();
+    // });
+       this.dao.getRecordsObservable().subscribe( rec => {
+        this.helper.sortFireBaseArray(rec);
+      this.records = rec;
     });
 
   }

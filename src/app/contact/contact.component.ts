@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecordFromDB } from '../model/record';
-import { LoadingFakeDataService } from '../service/loading-data.service';
+import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
+import { FirebaseDaoService } from '../service/firebase-dao.service';
 
 
 @Component({
@@ -12,10 +13,10 @@ export class ContactComponent implements OnInit {
 
   private contact: RecordFromDB;
 
-  constructor(private dataService: LoadingFakeDataService) {}
+  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
-    this.contact = this.dataService.getContact();
+    this.contact = this.helper.getContactRecord();
   }
 
 }

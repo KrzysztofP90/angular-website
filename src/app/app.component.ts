@@ -27,7 +27,8 @@ import { slideInAnimation } from './animations';
 
 export class AppComponent implements OnInit {
 
-  private records: Array<RecordFromDB>;
+  // private records: Array<RecordFromDB>;
+  private records: Array<FirebaseRecord>;
   private recordsObserv: Observable<FirebaseRecord[]>;
 
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
@@ -35,8 +36,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.recordsObserv = this.dao.getRecordsObservable();
     this.recordsObserv.subscribe(records => {
-      this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(records);
-      this.records = this.helper.getRecordsFromFirebase();
+      // this.helper.createUsefulRecordsArrayFromFirebaseRecordsArray(records);
+      // this.records = this.helper.getRecordsFromFirebase();
+      this.helper.sortFireBaseArray(records);
+      this.records = records;
     });
   }
 

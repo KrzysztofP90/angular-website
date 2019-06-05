@@ -8,4 +8,5 @@ export interface FirebaseRecord {
     title?: string;
     miniImagePath?: string;
     mainImagePath?: string;
+    id?: number;
 }

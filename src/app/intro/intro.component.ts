@@ -13,7 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class IntroComponent implements OnInit {
 
-  private records: Array<RecordFromDB>;
+  // private records: Array<RecordFromDB>;
+  private records: Array<FirebaseRecord>;
   private gallery: RecordFromDB;
   private contact: RecordFromDB;
   private recordsObserv: Observable<FirebaseRecord[]>;
@@ -23,7 +24,8 @@ export class IntroComponent implements OnInit {
   ngOnInit() {
     this.recordsObserv = this.dao.getRecordsObservable();
     this.recordsObserv.subscribe( rec => {
-      this.records = this.helper.getRecordsFromFirebase();
+      this.helper.sortFireBaseArray(rec);
+      this.records = rec;
     });
   }
 }
