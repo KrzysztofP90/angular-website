@@ -61,10 +61,17 @@ export class FirebaseDaoService {
   updateRecordInFirebase(updatedRecord: FirebaseRecord) {
     this.recordDocument = this.dao.doc('records/' + updatedRecord.idKey);
     this.recordDocument.update(updatedRecord);
+    alert("Record edited!");
   }
 
   getFirebaseRecords() {
     return this.firebaseRecords;
+  }
+
+  deleteRecord(recordToDelete: FirebaseRecord) {
+    this.recordDocument = this.dao.doc('records/' + recordToDelete.idKey);
+    this.recordDocument.delete();
+    alert("Record removed!");
   }
 
 }

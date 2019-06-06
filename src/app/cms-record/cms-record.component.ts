@@ -18,7 +18,10 @@ export class CmsRecordComponent implements OnInit {
 
   updateRecord() {
     this.dao.updateRecordInFirebase(this.record);
-    alert("Record edited!");
+  }
+
+  deleteRecord() {
+    this.dao.deleteRecord(this.record);
   }
 
 }
