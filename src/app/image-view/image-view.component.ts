@@ -14,4 +14,8 @@ export class ImageViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeImage() {
+
+  }
+
 }
