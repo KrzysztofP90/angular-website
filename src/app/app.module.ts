@@ -20,6 +20,8 @@ import { AddRecordComponent } from './add-record/add-record.component';
 import { GalleryCmsComponent } from './gallery-cms/gallery-cms.component';
 import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
 import { ImageViewComponent } from './image-view/image-view.component';
+import { AddImgComponent } from './add-img/add-img.component';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 
@@ -38,7 +40,8 @@ import { ImageViewComponent } from './image-view/image-view.component';
     AddRecordComponent,
     GalleryCmsComponent,
     EditGalleryComponent,
-    ImageViewComponent
+    ImageViewComponent,
+    AddImgComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ImageViewComponent } from './image-view/image-view.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

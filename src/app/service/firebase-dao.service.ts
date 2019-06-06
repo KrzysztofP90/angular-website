@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirebaseRecord } from '../model/firebase-record';
+import { FileRecordDB } from '../model/file-recordDB';
 import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -15,6 +16,7 @@ export class FirebaseDaoService {
 
   private recordsObservable: Observable<FirebaseRecord[]>;
   private recordCollection: AngularFirestoreCollection<FirebaseRecord>;
+  private galleryCollection: AngularFirestoreCollection<FileRecordDB>;
   private recordDocument: AngularFirestoreDocument<FirebaseRecord>;
   private firebaseRecords: Array<FirebaseRecord>;
   private newIdForRecord: number;
@@ -27,6 +29,7 @@ export class FirebaseDaoService {
         this.setPathForNewRecord();
       });
       this.recordCollection = dao.collection('records');
+      this.galleryCollection = dao.collection('gallery-img');
       this.recordsObservable = this.recordCollection.snapshotChanges()
       .pipe(
       map(changes => {
@@ -72,6 +75,12 @@ export class FirebaseDaoService {
     this.recordDocument = this.dao.doc('records/' + recordToDelete.idKey);
     this.recordDocument.delete();
     alert("Record removed!");
+  }
+
+  addGalleryRecordToFirebase(galleryRecord: FileRecordDB) {
+    this.galleryCollection.add(galleryRecord);
+    alert("Record added!");
+    console.log("Added!")
   }
 
 }
