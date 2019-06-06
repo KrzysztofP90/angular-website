@@ -6,6 +6,7 @@ import { RecordViewComponent } from '../app/record-view/record-view.component';
 import { GalleryComponent } from '../app/gallery/gallery.component';
 import { CmsComponent } from './cms/cms.component';
 import { AddRecordComponent } from './add-record/add-record.component';
+import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'cms', component: CmsComponent},
-  { path: 'cms/add', component: AddRecordComponent}
+  { path: 'cms/add', component: AddRecordComponent},
+  { path: 'cms/gallerycms', component: EditGalleryComponent}
 ];
 
 @NgModule({
