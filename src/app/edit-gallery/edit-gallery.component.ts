@@ -18,4 +18,8 @@ images: Array<any>;
     });
   }
 
+  uploadNewImage() {
+
+  }
+
 }

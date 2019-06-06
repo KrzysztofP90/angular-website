@@ -1,3 +1,7 @@
 <ng-container *ngFor='let img of images'>
   <app-image-view [imgRec]="img"></app-image-view>
 </ng-container>
+<a href="/cms">
+  <button class="btn mt-2 btn-primary btn-lg">Back to CMS</button>
+</a>
+<button class="btn ml-5 mt-2 btn-primary btn-lg" (click)="addNewImage()">Upload new image</button>
