@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecordFromDB } from '../model/record';
-import { LoadingFakeDataService } from '../service/loading-data.service';
+import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
+import { FirebaseDaoService } from '../service/firebase-dao.service';
+import { FirebaseRecord } from '../model/firebase-record';
 
 
 @Component({
@@ -10,12 +11,21 @@ import { LoadingFakeDataService } from '../service/loading-data.service';
 })
 export class ContactComponent implements OnInit {
 
-  private contact: RecordFromDB;
+  private contact: FirebaseRecord;
+  private records: FirebaseRecord[];
 
-  constructor(private dataService: LoadingFakeDataService) {}
+  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
 
   ngOnInit() {
-    this.contact = this.dataService.getContact();
+    this.records = this.dao.getFirebaseRecords();
+    this.helper.sortFireBaseArray(this.records);
+    this.records = this.helper.fixNewLineSignsFromFirebaseInRecordArray(this.records);
+    const contactId = this.getContactRecordId(this.records);
+    this.contact = this.records[contactId];
+  }
+
+  getContactRecordId(arr: FirebaseRecord[]) {
+    return this.records.length - 1;
   }
 
 }

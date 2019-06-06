@@ -12,8 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecordViewComponent } from './record-view/record-view.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-
+import { FormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { CmsComponent } from './cms/cms.component';
+import { CmsRecordComponent } from './cms-record/cms-record.component';
+import { AddRecordComponent } from './add-record/add-record.component';
 
 
 
@@ -26,7 +29,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     GalleryComponent,
     MainMenuComponent,
     ContactComponent,
-    RecordViewComponent
+    RecordViewComponent,
+    CmsComponent,
+    CmsRecordComponent,
+    AddRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

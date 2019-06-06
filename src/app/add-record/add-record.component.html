@@ -1,0 +1,34 @@
+
+<div class="container w-100 column" id="main">
+  <form (ngSubmit)="addRecord()">
+      <input value={{newId}} disabled [(ngModel)]="recordToAdd.id" name="id">
+  <div>
+      <h2>Title of record:</h2>
+      <textarea style="width: 100%" [(ngModel)]="recordToAdd.title" name="title">
+      </textarea>
+  </div>
+  <div>
+      <h2>Intro description of record:</h2>
+      <textarea rows="12" cols="70" style="width: 100%" [(ngModel)]="recordToAdd.description" name="description">
+      </textarea>
+  </div>
+  <!-- <div>
+      <h2>Record mini image:</h2>
+      <img src={{record.miniImagePath}}>
+      <button>Upload new image</button>
+  </div>
+  <div>
+      <h2>Record main image:</h2>
+      <img src={{record.mainImagePath}}>
+      <button>Upload new image</button>
+  </div>   -->
+  <div>
+      <h2>Main content of record:</h2>
+      <textarea rows="20" cols="70" style="width: 100%" [(ngModel)]="recordToAdd.mainContent" name="mainContent">
+      </textarea>
+      <input type="submit" value="Add record" class="btn bg-primary">
+  </div>
+</form>
+</div>
+<br>
+<br>

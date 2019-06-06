@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RecordFromDB } from '../model/record';
+import { FirebaseRecord } from '../model/firebase-record';
 
 @Component({
   selector: 'app-intro-describe1',
@@ -8,7 +8,7 @@ import { RecordFromDB } from '../model/record';
 })
 export class IntroDescribe1Component implements OnInit {
 
-  @Input() record: RecordFromDB;
+  @Input() record: FirebaseRecord;
   constructor() { }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import $ from '../../../node_modules/jquery';
-import { RecordFromDB } from '../model/record';
 import { Router } from '@angular/router';
+import { FirebaseRecord } from '../model/firebase-record';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class MainMenuComponent implements OnInit {
 
-  @Input() records: Array<RecordFromDB>;
+  @Input() records: Array<FirebaseRecord>;
   constructor(private router: Router) { }
 
   ngOnInit() {
-    $(document).ready(function () {
-      $('.second-button').on('click', function () {
+    $(document).ready( () => {
+      $('.second-button').on('click', () => {
         $('.animated-icon2').toggleClass('open');
       });
     });

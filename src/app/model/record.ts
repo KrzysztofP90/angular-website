@@ -1,5 +1,6 @@
 export class RecordFromDB {
 
+    private idKey: string;
     private title: string;
     private description: string;
     private path: string;
@@ -9,8 +10,9 @@ export class RecordFromDB {
     private miniImagePath: string;
     private mainImagePath: string;
 
-    constructor(title: string, description: string, path: string, buttonLabel: string,
+    constructor(idKey:string, title: string, description: string, path: string, buttonLabel: string,
          mainContent: string, miniImagePath: string, mainImagePath: string, id: number = 99) {
+        this.idKey = idKey;
         this.title = title;
         this.description = description;
         this.path = path;
@@ -19,6 +21,10 @@ export class RecordFromDB {
         this.mainContent = mainContent;
         this.miniImagePath = miniImagePath;
         this.mainImagePath = mainImagePath;
+    }
+
+    getIdKey() {
+        return this.idKey;
     }
 
     getId() {

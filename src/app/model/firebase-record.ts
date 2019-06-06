@@ -1,5 +1,6 @@
 export interface FirebaseRecord {
 
+    idKey?: string;
     buttonLabel?: string;
     description?: string;
     mainContent?: string;
@@ -7,4 +8,5 @@ export interface FirebaseRecord {
     title?: string;
     miniImagePath?: string;
     mainImagePath?: string;
+    id?: number;
 }
