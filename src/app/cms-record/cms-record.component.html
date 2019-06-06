@@ -1,15 +1,15 @@
 
 <div class="container w-100 column" id="main">
-        <form (ngSubmit)=(onSubmit())>
+        <form (ngSubmit)="updateRecord(record)">
         <div>
             <h2>Title of record:</h2>
-            <textarea style="width: 100%" ng-model="record.title" name="title">
+            <textarea style="width: 100%" [(ngModel)]="record.title" name="title">
                 {{record.title}}
             </textarea>
         </div>
         <div>
             <h2>Intro description of record:</h2>
-            <textarea rows="12" cols="70" style="width: 100%" ng-model="record.description" name="description">
+            <textarea rows="12" cols="70" style="width: 100%" [(ngModel)]="record.description" name="description">
                 {{record.description}}
             </textarea>
         </div>
@@ -25,15 +25,15 @@
         </div>  
         <div>
             <h2>Main content of record:</h2>
-            <textarea rows="20" cols="70" style="width: 100%" ng-model="record.mainContent" name="mainContent">
+            <textarea rows="20" cols="70" style="width: 100%" [(ngModel)]="record.mainContent" name="mainContent">
                 {{record.mainContent}}
             </textarea>
             <input type="submit" value="Update record" class="btn bg-primary">
         </div>
-        <div id="remove" class="ml-5 pl-5">
-            <button id="remove" class="bg-danger border-danger">Remove record</button>
-        </div>
     </form>
+    <div id="remove" class="ml-5 pl-5">
+        <button id="remove" class="bg-danger border-danger">Remove record</button>
+    </div>
 </div>
 <br>
 <br>

@@ -58,8 +58,8 @@ export class FirebaseDaoService {
     console.log("Added!")
   }
 
-  updateRecordInFirebase(updatedRecord: FirebaseRecord, record: FirebaseRecord) {
-    this.recordDocument = this.dao.doc('records/' + record.idKey);
+  updateRecordInFirebase(updatedRecord: FirebaseRecord) {
+    this.recordDocument = this.dao.doc('records/' + updatedRecord.idKey);
     this.recordDocument.update(updatedRecord);
   }
 
