@@ -19,6 +19,7 @@ import { CmsRecordComponent } from './cms-record/cms-record.component';
 import { AddRecordComponent } from './add-record/add-record.component';
 import { GalleryCmsComponent } from './gallery-cms/gallery-cms.component';
 import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
+import { ImageViewComponent } from './image-view/image-view.component';
 
 
 
@@ -36,7 +37,8 @@ import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
     CmsRecordComponent,
     AddRecordComponent,
     GalleryCmsComponent,
-    EditGalleryComponent
+    EditGalleryComponent,
+    ImageViewComponent
   ],
   imports: [
     BrowserModule,

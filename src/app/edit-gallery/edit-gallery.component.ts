@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GalleryService } from '../service/gallery.service';
 
 @Component({
   selector: 'app-edit-gallery',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditGalleryComponent implements OnInit {
 
-  constructor() { }
+images: Array<any>;
+
+  constructor(public dao: GalleryService) { }
 
   ngOnInit() {
+    this.dao.getGalleryImagesFromGallery().subscribe(img => {
+    this.images = img;
+    });
   }
 
 }
