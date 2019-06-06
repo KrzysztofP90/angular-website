@@ -5,10 +5,10 @@
   <ng-template [ngIf]='rec.id != 98' [ngIfElse]='gallery'>
     <app-cms-record [record]="rec"></app-cms-record>
   </ng-template>
+  <ng-template #gallery>
+    <app-gallery-cms [record]="rec"></app-gallery-cms>
+  </ng-template>
 </ng-container>
 <div>
-  <a routerLink="add"><button class="bg-primary">Add new Record</button></a>
+    <a routerLink="add"><button class="bg-primary">Add new Record</button></a>
 </div>
-<ng-template #gallery>
-  <app-gallery-cms></app-gallery-cms>
-</ng-template>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../service/gallery.service';
-import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
 
 @Component({
   selector: 'app-gallery',
@@ -12,7 +11,7 @@ export class GalleryComponent implements OnInit {
   private images: Array<any>;
   private lastSlideId: number;
 
-  constructor(private dao: GalleryService) { }
+  constructor(public dao: GalleryService) { }
 
   ngOnInit() {
     this.dao.getGalleryImagesFromGallery().subscribe(img => {
