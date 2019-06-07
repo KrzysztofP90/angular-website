@@ -13,15 +13,23 @@
             {{record.description}}
         </textarea>
     </div>
-    <input type="submit" value="Update record" class="btn bg-primary">
     <div>
         <h2>Gallery intro mini image:</h2>
         <img src={{record.miniImagePath}}>
         <app-add-img [record]="record" [isMainImage]="false"></app-add-img>
     </div>
+    <div>
+        <h2>Button label for gallery:</h2>
+        <input [(ngModel)]="record.buttonLabel" name="buttonLabel">
+        <input type="submit" value="Update record" class="btn bg-primary">
+    </div>
 </form>
 <br>
-<a href="cms/gallerycms"><button id="add-images" class="btn-primary">Edit images in gallery</button></a>
+<br>
+<a href="cms/gallerycms"><button id="add-images" class="btn-warning btn btn-lg">
+    Edit images in gallery
+</button>
+</a>
 </div>
 <br>
 <br>

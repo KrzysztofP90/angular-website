@@ -18,8 +18,12 @@
       <h2>Main content of record:</h2>
       <textarea rows="20" cols="70" style="width: 100%" [(ngModel)]="recordToAdd.mainContent" name="mainContent">
       </textarea>
-      <input type="submit" value="Add record" class="btn bg-primary btn-lg">
   </div>
+  <div>
+    <h2>Button label for record:</h2>
+    <input [(ngModel)]="recordToAdd.buttonLabel" name="buttonLabel">
+    <input type="submit" value="Add record" class="btn bg-primary btn-lg">
+</div>
 </form>
 <h2>Click "Add record" and go back to CMS for add images to Your new record!</h2>
 <a href="/cms"><button class="btn btn-lg btn-primary">Back to CMS</button></a>

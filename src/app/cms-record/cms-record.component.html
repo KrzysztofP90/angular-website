@@ -28,6 +28,11 @@
             <textarea rows="20" cols="70" style="width: 100%" [(ngModel)]="record.mainContent" name="mainContent">
                 {{record.mainContent}}
             </textarea>
+            
+        </div>
+        <div>
+            <h2>Button label for record:</h2>
+            <input [(ngModel)]="record.buttonLabel" name="buttonLabel">
             <input type="submit" value="Update record" class="btn bg-primary">
         </div>
     </form>
