@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FirebaseDaoService} from '../service/firebase-dao.service';
 import { FirebaseRecord } from '../model/firebase-record';
+import { UploadFileService } from '../service/upload-file.service';
 
 @Component({
   selector: 'app-cms-record',
@@ -11,7 +12,7 @@ export class CmsRecordComponent implements OnInit {
 
   @Input() private record: FirebaseRecord;
 
-  constructor(public dao: FirebaseDaoService) { }
+  constructor(public dao: FirebaseDaoService, uploadService: UploadFileService) { }
 
   ngOnInit() {
   }

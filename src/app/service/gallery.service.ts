@@ -13,16 +13,22 @@ import * as firebase from 'firebase';
 export class GalleryService {
 
   private imagesFromGallery: Observable<FileRecordDB[]>;
+  private recordImages: Observable<FileRecordDB[]>;
   private galleryCollection: AngularFirestoreCollection<FileRecordDB>;
   private galleryDocument: AngularFirestoreDocument<FileRecordDB>;
+  private imagesFromRecord: Observable<FileRecordDB[]>;
+  private recordCollection: AngularFirestoreCollection<FileRecordDB>;
+  private recordDocument: AngularFirestoreDocument<FileRecordDB>;
 
   constructor(private dao: AngularFirestore ) {
     this.galleryCollection = dao.collection('gallery-img');
-    this.imagesFromGallery = this.loadImagesWithIdKeyFromGallery();
+    this.imagesFromGallery = this.loadImagesWithIdKeyFromGallery(this.galleryCollection);
+    this.recordCollection = dao.collection('records-image');
+    this.recordImages = this.loadImagesWithIdKeyFromGallery(this.recordCollection);
    }
 
-   loadImagesWithIdKeyFromGallery() {
-    return this.galleryCollection.snapshotChanges()
+   loadImagesWithIdKeyFromGallery(collection: AngularFirestoreCollection<FileRecordDB> ) {
+    return collection.snapshotChanges()
     .pipe(
     map(changes => {
       return changes.map(a => {
@@ -39,6 +45,11 @@ export class GalleryService {
 
   addGalleryRecordToFirebase(galleryRecord: FileRecordDB) {
     this.galleryCollection.add(galleryRecord);
+    alert('Record added!');
+  }
+
+  addRecordImageToFirebase(imageRecord: FileRecordDB) {
+    this.recordCollection.add(imageRecord);
     alert('Record added!');
   }
 

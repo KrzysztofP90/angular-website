@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { FileToUpload } from '../model/fileToUpload';
 import { FileRecordDB } from '../model/file-recordDB';
 import { FirebaseDaoService } from '../service/firebase-dao.service';
 import { GalleryService } from '../service/gallery.service';
+import { FirebaseRecord } from '../model/firebase-record';
 
 
 @Injectable({
@@ -22,10 +23,10 @@ export class UploadFileService {
   };
 
 
-  constructor( private db: AngularFireDatabase,
-    private dao: GalleryService) { }
+  constructor( private db: AngularFireDatabase, private dao: GalleryService,
+    private recordDao: FirebaseDaoService) { }
 
-  pushUpload(upload: FileToUpload) {
+  pushUpload(upload: FileToUpload, record: FirebaseRecord = null, isMainImage?: boolean) {
     let storageRef = firebase.storage().ref();
     let uploadTask = storageRef.child(`${this.pathToImage}/${upload.file.name}`).put(upload.file);
 
@@ -40,13 +41,24 @@ export class UploadFileService {
         this.recordToSave.dbLocalization = uploadTask.snapshot.ref.fullPath;
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
           this.recordToSave.url = url;
-          this.saveNewRecordInGallery(this.recordToSave);
+          this.saveNewRecordInGallery(this.recordToSave, record, isMainImage);
         });
       }
     );
   }
 
-  saveNewRecordInGallery(upload: FileRecordDB) {
-    this.dao.addGalleryRecordToFirebase(upload);
+  saveNewRecordInGallery(upload: FileRecordDB, record: FirebaseRecord, isMainImage?: boolean) {
+    if (record === null) {
+      this.dao.addGalleryRecordToFirebase(upload);
+    }
+    else {
+      this.dao.addRecordImageToFirebase(upload);
+      if (isMainImage) {
+        record.mainImagePath = upload.url;
+      } else {
+        record.miniImagePath = upload.url;
+      }
+      this.recordDao.updateRecordInFirebase(record);
+    }
   }
 }

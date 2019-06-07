@@ -29,7 +29,9 @@ export class PrepareDataHelperService {
   }
 
   fixAndConvertNewLineSignsFromFireBase(text: string) {
-    return text.split('\\n').join('\n');
+    if (text != null) {
+      return text.split('\\n').join('\n');
+    }
   }
 
 }

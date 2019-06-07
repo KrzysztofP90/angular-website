@@ -16,12 +16,12 @@
         <div>
             <h2>Record mini image:</h2>
             <img src={{record.miniImagePath}}>
-            <button>Upload new image</button>
+            <app-add-img [record]="record" [isMainImage]="false"></app-add-img>
         </div>
         <div>
             <h2>Record main image:</h2>
             <img src={{record.mainImagePath}}>
-            <button>Upload new image</button>
+            <app-add-img [record]="record" [isMainImage]="true"></app-add-img>
         </div>  
         <div>
             <h2>Main content of record:</h2>
