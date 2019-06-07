@@ -14,11 +14,11 @@
         </textarea>
     </div>
     <input type="submit" value="Update record" class="btn bg-primary">
-      <!-- <div>
+    <div>
         <h2>Gallery intro mini image:</h2>
         <img src={{record.miniImagePath}}>
-        <button>Upload new image</button>
-    </div> -->
+        <app-add-img [record]="record" [isMainImage]="false"></app-add-img>
+    </div>
 </form>
 <br>
 <a href="cms/gallerycms"><button id="add-images" class="btn-primary">Edit images in gallery</button></a>
