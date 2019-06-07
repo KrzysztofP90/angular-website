@@ -1,0 +1,27 @@
+
+<div class="container w-100 column" id="main">
+    <form (ngSubmit)="updateRecord(record)">
+    <div>
+        <h2>Title of gallery:</h2>
+        <textarea style="width: 100%" [(ngModel)]="record.title" name="title">
+            {{record.title}}
+        </textarea>
+    </div>
+    <div>
+        <h2>Intro description of gallery:</h2>
+        <textarea rows="12" cols="70" style="width: 100%" [(ngModel)]="record.description" name="description">
+            {{record.description}}
+        </textarea>
+    </div>
+    <input type="submit" value="Update record" class="btn bg-primary">
+      <!-- <div>
+        <h2>Gallery intro mini image:</h2>
+        <img src={{record.miniImagePath}}>
+        <button>Upload new image</button>
+    </div> -->
+</form>
+<br>
+<a href="cms/gallerycms"><button id="add-images" class="btn-primary">Edit images in gallery</button></a>
+</div>
+<br>
+<br>

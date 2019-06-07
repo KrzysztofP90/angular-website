@@ -1,9 +1,15 @@
 <div>
+  <a href="/"><button class="btn btn-lg mb-2 btn-info">Log out</button></a>
   <h1 class="text-light bg-primary w-50 pl-5">CMS SYSTEM</h1>
-</div>
+</div> 
 <ng-container *ngFor='let rec of records'>
-  <app-cms-record [record]="rec"></app-cms-record>
+  <ng-template [ngIf]='rec.id != 98' [ngIfElse]='gallery'>
+    <app-cms-record [record]="rec"></app-cms-record>
+  </ng-template>
+  <ng-template #gallery>
+    <app-gallery-cms [record]="rec"></app-gallery-cms>
+  </ng-template>
 </ng-container>
 <div>
-  <a routerLink="add"><button class="bg-primary">Add new Record</button></a>
+    <a routerLink="add"><button class="bg-primary">Add new Record</button></a>
 </div>

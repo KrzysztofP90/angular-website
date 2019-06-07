@@ -17,6 +17,11 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CmsComponent } from './cms/cms.component';
 import { CmsRecordComponent } from './cms-record/cms-record.component';
 import { AddRecordComponent } from './add-record/add-record.component';
+import { GalleryCmsComponent } from './gallery-cms/gallery-cms.component';
+import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
+import { ImageViewComponent } from './image-view/image-view.component';
+import { AddImgComponent } from './add-img/add-img.component';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 
@@ -32,7 +37,11 @@ import { AddRecordComponent } from './add-record/add-record.component';
     RecordViewComponent,
     CmsComponent,
     CmsRecordComponent,
-    AddRecordComponent
+    AddRecordComponent,
+    GalleryCmsComponent,
+    EditGalleryComponent,
+    ImageViewComponent,
+    AddImgComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,8 @@ import { AddRecordComponent } from './add-record/add-record.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
