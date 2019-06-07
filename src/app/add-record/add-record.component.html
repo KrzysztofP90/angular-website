@@ -1,7 +1,9 @@
 
 <div class="container w-100 column" id="main">
+        <h1>New record to add:</h1>
+    <br>
   <form (ngSubmit)="addRecord()">
-      <input value={{newId}} disabled [(ngModel)]="recordToAdd.id" name="id">
+      <input value={{newId}} style="display: none" disabled [(ngModel)]="recordToAdd.id" name="id">
   <div>
       <h2>Title of record:</h2>
       <textarea style="width: 100%" [(ngModel)]="recordToAdd.title" name="title">
@@ -12,23 +14,15 @@
       <textarea rows="12" cols="70" style="width: 100%" [(ngModel)]="recordToAdd.description" name="description">
       </textarea>
   </div>
-  <!-- <div>
-      <h2>Record mini image:</h2>
-      <img src={{record.miniImagePath}}>
-      <button>Upload new image</button>
-  </div>
-  <div>
-      <h2>Record main image:</h2>
-      <img src={{record.mainImagePath}}>
-      <button>Upload new image</button>
-  </div>   -->
   <div>
       <h2>Main content of record:</h2>
       <textarea rows="20" cols="70" style="width: 100%" [(ngModel)]="recordToAdd.mainContent" name="mainContent">
       </textarea>
-      <input type="submit" value="Add record" class="btn bg-primary">
+      <input type="submit" value="Add record" class="btn bg-primary btn-lg">
   </div>
 </form>
+<h2>Click "Add record" and go back to CMS for add images to Your new record!</h2>
+<a href="/cms"><button class="btn btn-lg btn-primary">Back to CMS</button></a>
 </div>
 <br>
 <br>
