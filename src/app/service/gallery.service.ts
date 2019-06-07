@@ -43,13 +43,17 @@ export class GalleryService {
   }
 
   deleteGalleryRecord(galleryRecord: FileRecordDB) {
+    this.removeImageFromFirestorage(galleryRecord);
+    this.galleryDocument = this.dao.doc('gallery-img/' + galleryRecord.idKey);
+    this.galleryDocument.delete();
+    alert('Image removed!');
+  }
+
+  private removeImageFromFirestorage(galleryRecord: FileRecordDB) {
     const storageRef = firebase.storage().ref().child(galleryRecord.dbLocalization);
     storageRef.delete().then( () => {
     }).catch( (error) => {
       console.log('Image not removed!: ' + error);
     });
-    this.galleryDocument = this.dao.doc('gallery-img/' + galleryRecord.idKey);
-    this.galleryDocument.delete();
-    alert('Image removed!');
   }
 }
