@@ -16,23 +16,21 @@ export class GalleryService {
   private galleryDocument: AngularFirestoreDocument<FileRecordDB>;
 
   constructor(private dao: AngularFirestore ) {
-    // this.loadImagesFromFirebase();
     this.galleryCollection = dao.collection('gallery-img');
-      this.imagesFromGallery = this.galleryCollection.snapshotChanges()
-      .pipe(
-      map(changes => {
-        return changes.map(a => {
-          const data = a.payload.doc.data() as FileRecordDB;
-          data.idKey = a.payload.doc.id;
-          console.log("KEY ID:" + data.idKey);
-          return data;
-        });
-      }));
+    this.imagesFromGallery = this.loadImagesWithIdKeyFromGallery();
    }
 
-  // loadImagesFromFirebase() {
-  //   this.imagesFromGallery = this.dao.collection('gallery-img').valueChanges();
-  // }
+   loadImagesWithIdKeyFromGallery() {
+    return this.galleryCollection.snapshotChanges()
+    .pipe(
+    map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as FileRecordDB;
+        data.idKey = a.payload.doc.id;
+        return data;
+      });
+    }));
+   }
 
   getGalleryImagesFromGallery() {
     return this.imagesFromGallery;
@@ -41,7 +39,6 @@ export class GalleryService {
   addGalleryRecordToFirebase(galleryRecord: FileRecordDB) {
     this.galleryCollection.add(galleryRecord);
     alert("Record added!");
-    console.log("Added!")
   }
 
   deleteGalleryRecord(galleryRecord: FileRecordDB) {

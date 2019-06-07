@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { FirebaseRecord } from '../model/firebase-record';
-import { FileRecordDB } from '../model/file-recordDB';
 import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -74,7 +73,5 @@ export class FirebaseDaoService {
     this.recordDocument.delete();
     alert("Record removed!");
   }
-
-
 
 }
