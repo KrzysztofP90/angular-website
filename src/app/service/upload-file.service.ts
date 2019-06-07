@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import { FileToUpload } from '../model/fileToUpload';
 import { FileRecordDB } from '../model/file-recordDB';
 import { FirebaseDaoService } from '../service/firebase-dao.service';
+import { GalleryService } from '../service/gallery.service';
 
 
 @Injectable({
@@ -21,7 +22,7 @@ export class UploadFileService {
 
 
   constructor( private db: AngularFireDatabase,
-    private dao: FirebaseDaoService) { }
+    private dao: GalleryService) { }
 
   pushUpload(upload: FileToUpload) {
     let storageRef = firebase.storage().ref();

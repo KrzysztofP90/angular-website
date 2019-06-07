@@ -16,7 +16,6 @@ export class FirebaseDaoService {
 
   private recordsObservable: Observable<FirebaseRecord[]>;
   private recordCollection: AngularFirestoreCollection<FirebaseRecord>;
-  private galleryCollection: AngularFirestoreCollection<FileRecordDB>;
   private recordDocument: AngularFirestoreDocument<FirebaseRecord>;
   private firebaseRecords: Array<FirebaseRecord>;
   private newIdForRecord: number;
@@ -29,7 +28,6 @@ export class FirebaseDaoService {
         this.setPathForNewRecord();
       });
       this.recordCollection = dao.collection('records');
-      this.galleryCollection = dao.collection('gallery-img');
       this.recordsObservable = this.recordCollection.snapshotChanges()
       .pipe(
       map(changes => {
@@ -77,10 +75,6 @@ export class FirebaseDaoService {
     alert("Record removed!");
   }
 
-  addGalleryRecordToFirebase(galleryRecord: FileRecordDB) {
-    this.galleryCollection.add(galleryRecord);
-    alert("Record added!");
-    console.log("Added!")
-  }
+
 
 }
