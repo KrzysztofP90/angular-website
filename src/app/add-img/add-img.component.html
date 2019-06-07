@@ -1,17 +1,20 @@
-<div *ngIf="currentUpload">
+<div id="main">
+  <h1>Add new image to gallery:</h1>
+  <div *ngIf="currentUpload" class="bg-info">
     <div class="progress">
       <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
     </div>
     Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
   </div>
   
-      <label>
-         <input type="file" (change)="detectFiles($event)">
-      </label>
-  
-      <button
-              [disabled]="!selectedFiles"
-              (click)="uploadSingle()">
-  
-        Upload Single
-      </button>
+  <label>
+      <input type="file" (change)="detectFiles($event)">
+  </label>
+
+  <button
+          [disabled]="!selectedFiles"
+          (click)="uploadSingle()">
+    Upload image
+  </button>
+</div>  
+<a href="cms/gallerycms"><button class='btn btn-info btn-lg ml-5'>Back to gallery edit</button></a>
