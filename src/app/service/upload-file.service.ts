@@ -17,7 +17,8 @@ export class UploadFileService {
 
   private recordToSave: FileRecordDB = {
     name: "",
-    url: ""
+    url: "",
+    dbLocalization: ""
   };
 
 
@@ -36,6 +37,7 @@ export class UploadFileService {
         console.log(error);
       },
       () => {
+        this.recordToSave.dbLocalization = uploadTask.snapshot.ref.fullPath;
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
           this.recordToSave.url = url;
           this.saveNewRecordInGallery(this.recordToSave);

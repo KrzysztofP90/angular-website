@@ -5,6 +5,7 @@ import { FileRecordDB } from '../model/file-recordDB';
 import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -38,12 +39,17 @@ export class GalleryService {
 
   addGalleryRecordToFirebase(galleryRecord: FileRecordDB) {
     this.galleryCollection.add(galleryRecord);
-    alert("Record added!");
+    alert('Record added!');
   }
 
   deleteGalleryRecord(galleryRecord: FileRecordDB) {
+    const storageRef = firebase.storage().ref().child(galleryRecord.dbLocalization);
+    storageRef.delete().then( () => {
+    }).catch( (error) => {
+      console.log('Image not removed!: ' + error);
+    });
     this.galleryDocument = this.dao.doc('gallery-img/' + galleryRecord.idKey);
     this.galleryDocument.delete();
-    alert("Image removed!");
+    alert('Image removed!');
   }
 }
