@@ -22,6 +22,7 @@ import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
 import { ImageViewComponent } from './image-view/image-view.component';
 import { AddImgComponent } from './add-img/add-img.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AddGalleryImgComponent } from './helper-mini-components/add-gallery-img/add-gallery-img.component';
 
 
 
@@ -41,7 +42,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     GalleryCmsComponent,
     EditGalleryComponent,
     ImageViewComponent,
-    AddImgComponent
+    AddImgComponent,
+    AddGalleryImgComponent
   ],
   imports: [
     BrowserModule,

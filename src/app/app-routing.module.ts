@@ -7,7 +7,7 @@ import { GalleryComponent } from '../app/gallery/gallery.component';
 import { CmsComponent } from './cms/cms.component';
 import { AddRecordComponent } from './add-record/add-record.component';
 import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
-import { AddImgComponent } from './add-img/add-img.component';
+import { AddGalleryImgComponent } from '../app/helper-mini-components/add-gallery-img/add-gallery-img.component';
 
 
 const routes: Routes = [
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'cms', component: CmsComponent},
   { path: 'cms/add', component: AddRecordComponent},
   { path: 'cms/gallerycms', component: EditGalleryComponent},
-  { path: 'cms/gallerycms/img_add', component: AddImgComponent}
+  { path: 'cms/gallerycms/img_add', component: AddGalleryImgComponent}
 ];
 
 @NgModule({
