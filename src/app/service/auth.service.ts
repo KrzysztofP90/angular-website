@@ -22,7 +22,10 @@ export class AuthService {
   }
  
   login({email, password}: Credentials) {
-    return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+    const session = this.fireAuth.auth.Persistence.SESSION;
+    return this.fireAuth.auth.setPersistence(session).then(() => {
+      return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+    });
   }
  
   register({email, password}: Credentials) {
