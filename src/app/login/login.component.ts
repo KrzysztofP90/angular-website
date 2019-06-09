@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.credentials)
-      .then(() => this.router.navigate(['/cms']))
+      .then(() => this.router.navigate(['succes']))
       .catch(err => {
         console.log(err.message);
         alert("Deny acces!");

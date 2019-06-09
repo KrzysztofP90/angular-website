@@ -10,6 +10,7 @@ import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
 import { AddGalleryImgComponent } from '../app/helper-mini-components/add-gallery-img/add-gallery-img.component';
 import { LoginComponent } from '../app/login/login.component';
 import { AuthGuardService } from '../app/service/auth-guard.service';
+import { SuccesLogComponent } from '../app/helper-mini-components/succes-log/succes-log.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'cms/add', component: AddRecordComponent, canActivate: [AuthGuardService]},
   { path: 'cms/gallerycms', component: EditGalleryComponent, canActivate: [AuthGuardService]},
   { path: 'cms/gallerycms/img_add', component: AddGalleryImgComponent, canActivate: [AuthGuardService]},
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'succes', component: SuccesLogComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

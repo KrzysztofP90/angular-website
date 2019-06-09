@@ -25,6 +25,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AddGalleryImgComponent } from './helper-mini-components/add-gallery-img/add-gallery-img.component';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
+import { SuccesLogComponent } from './helper-mini-components/succes-log/succes-log.component';
 
 
 
@@ -46,7 +47,8 @@ import { LoginComponent } from './login/login.component';
     ImageViewComponent,
     AddImgComponent,
     AddGalleryImgComponent,
-    LoginComponent
+    LoginComponent,
+    SuccesLogComponent
   ],
   imports: [
     BrowserModule,
