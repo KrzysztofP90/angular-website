@@ -9,6 +9,7 @@ import { AddRecordComponent } from './add-record/add-record.component';
 import { EditGalleryComponent } from './edit-gallery/edit-gallery.component';
 import { AddGalleryImgComponent } from '../app/helper-mini-components/add-gallery-img/add-gallery-img.component';
 import { LoginComponent } from '../app/login/login.component';
+import { AuthGuardService } from '../app/service/auth-guard.service';
 
 
 const routes: Routes = [
@@ -16,10 +17,10 @@ const routes: Routes = [
   { path: 'option/:id', component: RecordViewComponent, data: {animation: 'animation'}},
   { path: 'gallery', component: GalleryComponent},
   { path: 'contact', component: ContactComponent},
-  { path: 'cms', component: CmsComponent},
-  { path: 'cms/add', component: AddRecordComponent},
-  { path: 'cms/gallerycms', component: EditGalleryComponent},
-  { path: 'cms/gallerycms/img_add', component: AddGalleryImgComponent},
+  { path: 'cms', component: CmsComponent, canActivate: [AuthGuardService]},
+  { path: 'cms/add', component: AddRecordComponent, canActivate: [AuthGuardService]},
+  { path: 'cms/gallerycms', component: EditGalleryComponent, canActivate: [AuthGuardService]},
+  { path: 'cms/gallerycms/img_add', component: AddGalleryImgComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent }
 ];
 
