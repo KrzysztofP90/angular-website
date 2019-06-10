@@ -65,8 +65,9 @@ export class ContactComponent implements OnInit {
   sendEmail() {
     this.createMessageToClientFromMessage();
     this.createJSONtoSend();
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
     console.log(this.JsonToSend);
-    this.http.post(this.mailerUrl, this.JsonToSend)
+    this.http.post(proxyurl + this.mailerUrl, this.JsonToSend)
     .subscribe(
         (val) => {
             console.log("POST call successful value returned in body", 
