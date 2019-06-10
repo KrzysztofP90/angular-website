@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PrepareDataHelperService } from '../service/prepare-data-helper.service';
 import { FirebaseDaoService } from '../service/firebase-dao.service';
 import { FirebaseRecord } from '../model/firebase-record';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class ContactComponent implements OnInit {
 
   private contact: FirebaseRecord;
   private records: FirebaseRecord[];
+  private mailerUrl: string = 'https://mailer-krzysztofp.herokuapp.com//v1/mailer';
 
   private email: any = {
     email: '',
@@ -33,7 +35,8 @@ export class ContactComponent implements OnInit {
 
 
 
-  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService) {}
+  constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService,
+    private http: HttpClient) {}
 
   ngOnInit() {
     this.records = this.dao.getFirebaseRecords();
@@ -54,7 +57,7 @@ export class ContactComponent implements OnInit {
   }
 
   createJSONtoSend() {
-    this.JsonToSend.message = this.email.message;
+    this.JsonToSend.messageText = this.email.message;
     /// temporary
     this.JsonToSend.consumerEmail = 'krzysztof1.przybylowicz@gmail.com';
   }
@@ -63,6 +66,18 @@ export class ContactComponent implements OnInit {
     this.createMessageToClientFromMessage();
     this.createJSONtoSend();
     console.log(this.JsonToSend);
+    this.http.post(this.mailerUrl, this.JsonToSend)
+    .subscribe(
+        (val) => {
+            console.log("POST call successful value returned in body", 
+                        val);
+        },
+        response => {
+            console.log("POST call in error", response);
+        },
+        () => {
+            console.log("The POST observable is now completed.");
+        });
   }
 
 }

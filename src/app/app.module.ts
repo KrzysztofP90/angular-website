@@ -23,6 +23,7 @@ import { ImageViewComponent } from './image-view/image-view.component';
 import { AddImgComponent } from './add-img/add-img.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AddGalleryImgComponent } from './helper-mini-components/add-gallery-img/add-gallery-img.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -52,7 +53,8 @@ import { AddGalleryImgComponent } from './helper-mini-components/add-gallery-img
     AngularFirestoreModule,
     BrowserAnimationsModule,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
