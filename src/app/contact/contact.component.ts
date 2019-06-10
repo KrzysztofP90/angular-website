@@ -33,8 +33,6 @@ export class ContactComponent implements OnInit {
       messageText: ""
   };
 
-
-
   constructor(public dao: FirebaseDaoService, public helper: PrepareDataHelperService,
     private http: HttpClient) {}
 
@@ -51,7 +49,7 @@ export class ContactComponent implements OnInit {
   }
 
   createMessageToClientFromMessage() {
-    const message = this.email.message + '\n Your message from client - please answer to '
+    const message = this.email.message + '\n ------ Your message from client ------- please answer to '
     + this.email.email;
     this.email.message = message;
   }
@@ -65,20 +63,25 @@ export class ContactComponent implements OnInit {
   sendEmail() {
     this.createMessageToClientFromMessage();
     this.createJSONtoSend();
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    console.log(this.JsonToSend);
-    this.http.post(proxyurl + this.mailerUrl, this.JsonToSend)
-    .subscribe(
-        (val) => {
-            console.log("POST call successful value returned in body", 
-                        val);
-        },
-        response => {
-            console.log("POST call in error", response);
-        },
-        () => {
-            console.log("The POST observable is now completed.");
-        });
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    if (this.quest === '4') {
+      alert('Sending....');
+      this.http.post(proxyurl + this.mailerUrl, this.JsonToSend)
+      .subscribe(
+          (val) => {
+              console.log('POST call successful value returned in body', 
+                          val);
+          },
+          response => {
+              console.log('POST call in error', response);
+          },
+          () => {
+              console.log('The POST observable is now completed.');
+              alert('Message sent!');
+          });
+    } else {
+      alert('Please confirm correctly that You are not a robot!');
+    }
   }
 
 }
