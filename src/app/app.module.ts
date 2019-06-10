@@ -23,9 +23,11 @@ import { ImageViewComponent } from './image-view/image-view.component';
 import { AddImgComponent } from './add-img/add-img.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AddGalleryImgComponent } from './helper-mini-components/add-gallery-img/add-gallery-img.component';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
 import { SuccesLogComponent } from './helper-mini-components/succes-log/succes-log.component';
+
 
 
 
@@ -58,6 +60,7 @@ import { SuccesLogComponent } from './helper-mini-components/succes-log/succes-l
     BrowserAnimationsModule,
     FormsModule,
     AngularFireDatabaseModule,
+    HttpClientModule,
     AngularFireAuthModule
   ],
   providers: [],
