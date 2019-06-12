@@ -1,5 +1,9 @@
-import {trigger, transition, style, query, group, animateChild,animate,keyframes} from 
+import {trigger, transition, style, query as q, group, animateChild,animate,keyframes} from 
 '@angular/animations';
+
+export function query(s, a) {
+  return q(s, a, {optional: true});
+}
 
 
 export const slideInAnimation =
