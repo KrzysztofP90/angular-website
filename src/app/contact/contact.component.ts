@@ -21,6 +21,8 @@ export class ContactComponent implements OnInit {
     message: ''
   };
 
+  private clientData: string;
+
   private quest: string;
 
   private JsonToSend: any = {
@@ -48,20 +50,19 @@ export class ContactComponent implements OnInit {
     return this.records.length - 1;
   }
 
-  createMessageToClientFromMessage() {
-    const message = this.email.message + '\n ------ Your message from client ------- please answer to '
+  createInfoAboutSender() {
+    this.clientData = '\n ------ Your message from client ------- please answer to '
     + this.email.email;
-    this.email.message = message;
   }
 
   createJSONtoSend() {
-    this.JsonToSend.messageText = this.email.message;
+    this.JsonToSend.messageText = this.email.message + this.clientData;
     /// temporary
     this.JsonToSend.consumerEmail = 'krzysztof1.przybylowicz@gmail.com';
   }
 
   sendEmail() {
-    this.createMessageToClientFromMessage();
+    this.createInfoAboutSender();
     this.createJSONtoSend();
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     if (this.quest === '4') {
