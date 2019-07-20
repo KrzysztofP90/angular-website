@@ -15,7 +15,6 @@ export class ContactComponent implements OnInit {
   private contact: FirebaseRecord;
   private records: FirebaseRecord[];
   private mailerUrl: string = 'https://mailer-krzysztofp.herokuapp.com//v1/mailer';
-
   private email: any = {
     email: '',
     message: ''
@@ -64,10 +63,9 @@ export class ContactComponent implements OnInit {
   sendEmail() {
     this.createInfoAboutSender();
     this.createJSONtoSend();
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
     if (this.quest === '4') {
       alert('Sending....');
-      this.http.post(proxyurl + this.mailerUrl, this.JsonToSend)
+      this.http.post(this.mailerUrl, this.JsonToSend)
       .subscribe(
           (val) => {
               console.log('POST call successful value returned in body', 
